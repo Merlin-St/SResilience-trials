@@ -1,0 +1,925 @@
+sequence_number,naics_code,naics_title,sector_code,sector_name,prompt,response,prompt_tokens,completion_tokens,total_tokens,is_cni,cni_sector
+3,1111,Oilseed and Grain Farming,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1111 - Oilseed and Grain Farming
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",495,18,513,1,Food and Agriculture Sector
+19,1112,Vegetable and Melon Farming,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1112 - Vegetable and Melon Farming
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",494,18,512,1,Food and Agriculture Sector
+23,1113,Fruit and Tree Nut Farming,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1113 - Fruit and Tree Nut Farming
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",494,18,512,1,Food and Agriculture Sector
+36,1114,"Greenhouse, Nursery, and Floriculture Production",11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1114 - Greenhouse, Nursery, and Floriculture Production
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",498,18,516,1,Food and Agriculture Sector
+43,1119,Other Crop Farming,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1119 - Other Crop Farming
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",490,18,508,1,Food and Agriculture Sector
+57,1121,Cattle Ranching and Farming,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1121 - Cattle Ranching and Farming
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",493,18,511,1,Food and Agriculture Sector
+65,1122,Hog and Pig Farming,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1122 - Hog and Pig Farming
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",493,18,511,1,Food and Agriculture Sector
+68,1123,Poultry and Egg Production,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1123 - Poultry and Egg Production
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",493,18,511,1,Food and Agriculture Sector
+79,1124,Sheep and Goat Farming,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1124 - Sheep and Goat Farming
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",493,18,511,1,Food and Agriculture Sector
+84,1125,Aquaculture,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1125 - Aquaculture
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",489,18,507,1,Food and Agriculture Sector
+89,1129,Other Animal Production,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1129 - Other Animal Production
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",488,10,498,0,
+99,1131,Timber Tract Operations,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1131 - Timber Tract Operations
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",490,10,500,0,
+102,1132,Forest Nurseries and Gathering of Forest Products,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1132 - Forest Nurseries and Gathering of Forest Products
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",495,10,505,0,
+105,1133,Logging,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1133 - Logging
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",487,10,497,0,
+109,1141,Fishing,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1141 - Fishing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",487,18,505,1,Food and Agriculture Sector
+114,1142,Hunting and Trapping,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1142 - Hunting and Trapping
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+118,1151,Support Activities for Crop Production,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1151 - Support Activities for Crop Production
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",491,18,509,1,Food and Agriculture Sector
+126,1152,Support Activities for Animal Production,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1152 - Support Activities for Animal Production
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",490,18,508,1,Food and Agriculture Sector
+129,1153,Support Activities for Forestry,11,"Agriculture, Forestry, Fishing and Hunting","NAICS Code: 1153 - Support Activities for Forestry
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+134,2111,Oil and Gas Extraction,21,"Mining, Quarrying, and Oil and Gas Extraction","NAICS Code: 2111 - Oil and Gas Extraction
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Energy Sector.",490,16,506,1,Energy Sector
+140,2121,Coal Mining,21,"Mining, Quarrying, and Oil and Gas Extraction","NAICS Code: 2121 - Coal Mining
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Energy Sector.",487,16,503,1,Energy Sector
+144,2122,Metal Ore Mining,21,"Mining, Quarrying, and Oil and Gas Extraction","NAICS Code: 2122 - Metal Ore Mining
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",489,17,506,1,Critical Manufacturing Sector
+153,2123,Nonmetallic Mineral Mining and Quarrying,21,"Mining, Quarrying, and Oil and Gas Extraction","NAICS Code: 2123 - Nonmetallic Mineral Mining and Quarrying
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",497,10,507,0,
+166,2131,Support Activities for Mining,21,"Mining, Quarrying, and Oil and Gas Extraction","NAICS Code: 2131 - Support Activities for Mining
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Energy Sector.",489,16,505,1,Energy Sector
+175,2211,"Electric Power Generation, Transmission and Distribution",22,Utilities,"NAICS Code: 2211 - Electric Power Generation, Transmission and Distribution
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Energy Sector.",493,16,509,1,Energy Sector
+188,2212,Natural Gas Distribution ,22,Utilities,"NAICS Code: 2212 - Natural Gas Distribution 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Energy Sector.",489,16,505,1,Energy Sector
+191,2213,"Water, Sewage and Other Systems ",22,Utilities,"NAICS Code: 2213 - Water, Sewage and Other Systems 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Water and Wastewater Systems Sector.",494,22,516,1,Water and Wastewater Systems Sector
+200,2361,Residential Building Construction,23,Construction,"NAICS Code: 2361 - Residential Building Construction
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",489,10,499,0,
+206,2362,Nonresidential Building Construction,23,Construction,"NAICS Code: 2362 - Nonresidential Building Construction
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Government Facilities Sector.",492,18,510,1,Government Facilities Sector
+212,2371,Utility System Construction,23,Construction,"NAICS Code: 2371 - Utility System Construction
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Energy Sector.",489,16,505,1,Energy Sector
+219,2372,Land Subdivision,23,Construction,"NAICS Code: 2372 - Land Subdivision
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",488,10,498,0,
+222,2373,"Highway, Street, and Bridge Construction",23,Construction,"NAICS Code: 2373 - Highway, Street, and Bridge Construction
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",492,17,509,1,Transportation Systems Sector
+225,2379,Other Heavy and Civil Engineering Construction,23,Construction,"NAICS Code: 2379 - Other Heavy and Civil Engineering Construction
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Dams Sector.",491,18,509,1,Dams Sector
+229,2381,"Foundation, Structure, and Building Exterior Contractors",23,Construction,"NAICS Code: 2381 - Foundation, Structure, and Building Exterior Contractors
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",495,10,505,0,
+246,2382,Building Equipment Contractors,23,Construction,"NAICS Code: 2382 - Building Equipment Contractors
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Energy Sector.",489,16,505,1,Energy Sector
+253,2383,Building Finishing Contractors,23,Construction,"NAICS Code: 2383 - Building Finishing Contractors
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",490,10,500,0,
+266,2389,Other Specialty Trade Contractors,23,Construction,"NAICS Code: 2389 - Other Specialty Trade Contractors
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+273,3111,Animal Food Manufacturing,31,,"NAICS Code: 3111 - Animal Food Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",488,18,506,1,Food and Agriculture Sector
+277,3112,Grain and Oilseed Milling,31,,"NAICS Code: 3112 - Grain and Oilseed Milling
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",496,18,514,1,Food and Agriculture Sector
+288,3113,Sugar and Confectionery Product Manufacturing,31,,"NAICS Code: 3113 - Sugar and Confectionery Product Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",493,18,511,1,Food and Agriculture Sector
+297,3114,Fruit and Vegetable Preserving and Specialty Food Manufacturing,31,,"NAICS Code: 3114 - Fruit and Vegetable Preserving and Specialty Food Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",499,18,517,1,Food and Agriculture Sector
+305,3115,Dairy Product Manufacturing,31,,"NAICS Code: 3115 - Dairy Product Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",489,18,507,1,Food and Agriculture Sector
+313,3116,Animal Slaughtering and Processing,31,,"NAICS Code: 3116 - Animal Slaughtering and Processing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",492,18,510,1,Food and Agriculture Sector
+319,3117,Seafood Product Preparation and Packaging,31,,"NAICS Code: 3117 - Seafood Product Preparation and Packaging
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",494,18,512,1,Food and Agriculture Sector
+322,3118,Bakeries and Tortilla Manufacturing,31,,"NAICS Code: 3118 - Bakeries and Tortilla Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",493,18,511,1,Food and Agriculture Sector
+332,3119,Other Food Manufacturing,31,,"NAICS Code: 3119 - Other Food Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",488,18,506,1,Food and Agriculture Sector
+347,3121,Beverage Manufacturing,31,,"NAICS Code: 3121 - Beverage Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",489,18,507,1,Food and Agriculture Sector
+358,3122,Tobacco Manufacturing,31,,"NAICS Code: 3122 - Tobacco Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",488,10,498,0,
+362,3131,"Fiber, Yarn, and Thread Mills",31,,"NAICS Code: 3131 - Fiber, Yarn, and Thread Mills
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",494,10,504,0,
+365,3132,Fabric Mills,31,,"NAICS Code: 3132 - Fabric Mills
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",488,10,498,0,
+374,3133,Textile and Fabric Finishing and Fabric Coating Mills,31,,"NAICS Code: 3133 - Textile and Fabric Finishing and Fabric Coating Mills
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",498,10,508,0,
+380,3141,Textile Furnishings Mills,31,,"NAICS Code: 3141 - Textile Furnishings Mills
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",492,10,502,0,
+385,3149,Other Textile Product Mills,31,,"NAICS Code: 3149 - Other Textile Product Mills
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",490,10,500,0,
+392,3151,Apparel Knitting Mills,31,,"NAICS Code: 3151 - Apparel Knitting Mills
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",492,10,502,0,
+395,3152,Cut and Sew Apparel Manufacturing,31,,"NAICS Code: 3152 - Cut and Sew Apparel Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",494,10,504,0,
+400,3159,Apparel Accessories and Other Apparel Manufacturing,31,,"NAICS Code: 3159 - Apparel Accessories and Other Apparel Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",496,10,506,0,
+404,3161,Leather and Hide Tanning and Finishing,31,,"NAICS Code: 3161 - Leather and Hide Tanning and Finishing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",495,10,505,0,
+407,3162,Footwear Manufacturing,31,,"NAICS Code: 3162 - Footwear Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",490,10,500,0,
+410,3169,Other Leather and Allied Product Manufacturing,31,,"NAICS Code: 3169 - Other Leather and Allied Product Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",492,10,502,0,
+414,3211,Sawmills and Wood Preservation,32,,"NAICS Code: 3211 - Sawmills and Wood Preservation
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",493,10,503,0,
+418,3212,"Veneer, Plywood, and Engineered Wood Product Manufacturing",32,,"NAICS Code: 3212 - Veneer, Plywood, and Engineered Wood Product Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",500,10,510,0,
+424,3219,Other Wood Product Manufacturing,32,,"NAICS Code: 3219 - Other Wood Product Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",489,10,499,0,
+436,3221,"Pulp, Paper, and Paperboard Mills",32,,"NAICS Code: 3221 - Pulp, Paper, and Paperboard Mills
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",496,10,506,0,
+443,3222,Converted Paper Product Manufacturing,32,,"NAICS Code: 3222 - Converted Paper Product Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",490,10,500,0,
+456,3231,Printing and Related Support Activities,32,,"NAICS Code: 3231 - Printing and Related Support Activities
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+464,3241,Petroleum and Coal Products Manufacturing,32,,"NAICS Code: 3241 - Petroleum and Coal Products Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Energy Sector.",491,16,507,1,Energy Sector
+474,3251,Basic Chemical Manufacturing,32,,"NAICS Code: 3251 - Basic Chemical Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Chemical Sector.",488,16,504,1,Chemical Sector
+487,3252,"Resin, Synthetic Rubber, and Artificial and Synthetic Fibers and Filaments Manufacturing",32,,"NAICS Code: 3252 - Resin, Synthetic Rubber, and Artificial and Synthetic Fibers and Filaments Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Chemical Sector.",508,16,524,1,Chemical Sector
+493,3253,"Pesticide, Fertilizer, and Other Agricultural Chemical Manufacturing",32,,"NAICS Code: 3253 - Pesticide, Fertilizer, and Other Agricultural Chemical Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Chemical Sector.",498,16,514,1,Chemical Sector
+501,3254,Pharmaceutical and Medicine Manufacturing,32,,"NAICS Code: 3254 - Pharmaceutical and Medicine Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",490,19,509,1,Healthcare and Public Health Sector
+507,3255,"Paint, Coating, and Adhesive Manufacturing",32,,"NAICS Code: 3255 - Paint, Coating, and Adhesive Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Chemical Sector.",495,16,511,1,Chemical Sector
+512,3256,"Soap, Cleaning Compound, and Toilet Preparation Manufacturing",32,,"NAICS Code: 3256 - Soap, Cleaning Compound, and Toilet Preparation Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",499,10,509,0,
+519,3259,Other Chemical Product and Preparation Manufacturing,32,,"NAICS Code: 3259 - Other Chemical Product and Preparation Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Chemical Sector.",492,16,508,1,Chemical Sector
+529,3261,Plastics Product Manufacturing,32,,"NAICS Code: 3261 - Plastics Product Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",490,17,507,1,Critical Manufacturing Sector
+548,3262,Rubber Product Manufacturing,32,,"NAICS Code: 3262 - Rubber Product Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",489,17,506,1,Critical Manufacturing Sector
+558,3271,Clay Product and Refractory Manufacturing,32,,"NAICS Code: 3271 - Clay Product and Refractory Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",493,10,503,0,
+563,3272,Glass and Glass Product Manufacturing,32,,"NAICS Code: 3272 - Glass and Glass Product Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",490,17,507,1,Critical Manufacturing Sector
+569,3273,Cement and Concrete Product Manufacturing,32,,"NAICS Code: 3273 - Cement and Concrete Product Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",492,17,509,1,Critical Manufacturing Sector
+579,3274,Lime and Gypsum Product Manufacturing,32,,"NAICS Code: 3274 - Lime and Gypsum Product Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",494,10,504,0,
+584,3279,Other Nonmetallic Mineral Product Manufacturing,32,,"NAICS Code: 3279 - Other Nonmetallic Mineral Product Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",495,10,505,0,
+593,3311,Iron and Steel Mills and Ferroalloy Manufacturing,33,,"NAICS Code: 3311 - Iron and Steel Mills and Ferroalloy Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",496,17,513,1,Critical Manufacturing Sector
+596,3312,Steel Product Manufacturing from Purchased Steel,33,,"NAICS Code: 3312 - Steel Product Manufacturing from Purchased Steel
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",492,17,509,1,Critical Manufacturing Sector
+602,3313,Alumina and Aluminum Production and Processing,33,,"NAICS Code: 3313 - Alumina and Aluminum Production and Processing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",494,17,511,1,Critical Manufacturing Sector
+608,3314,Nonferrous Metal (except Aluminum) Production and Processing,33,,"NAICS Code: 3314 - Nonferrous Metal (except Aluminum) Production and Processing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",498,17,515,1,Critical Manufacturing Sector
+616,3315,Foundries,33,,"NAICS Code: 3315 - Foundries
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",488,17,505,1,Critical Manufacturing Sector
+626,3321,Forging and Stamping,33,,"NAICS Code: 3321 - Forging and Stamping
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",492,17,509,1,Critical Manufacturing Sector
+633,3322,Cutlery and Handtool Manufacturing,33,,"NAICS Code: 3322 - Cutlery and Handtool Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",495,10,505,0,
+637,3323,Architectural and Structural Metals Manufacturing,33,,"NAICS Code: 3323 - Architectural and Structural Metals Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",493,17,510,1,Critical Manufacturing Sector
+646,3324,"Boiler, Tank, and Shipping Container Manufacturing",33,,"NAICS Code: 3324 - Boiler, Tank, and Shipping Container Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",496,17,513,1,Critical Manufacturing Sector
+654,3325,Hardware Manufacturing,33,,"NAICS Code: 3325 - Hardware Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",487,17,504,1,Critical Manufacturing Sector
+657,3326,Spring and Wire Product Manufacturing,33,,"NAICS Code: 3326 - Spring and Wire Product Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",490,10,500,0,
+661,3327,"Machine Shops; Turned Product; and Screw, Nut, and Bolt Manufacturing",33,,"NAICS Code: 3327 - Machine Shops; Turned Product; and Screw, Nut, and Bolt Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",506,17,523,1,Critical Manufacturing Sector
+667,3328,"Coating, Engraving, Heat Treating, and Allied Activities",33,,"NAICS Code: 3328 - Coating, Engraving, Heat Treating, and Allied Activities
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",500,10,510,0,
+672,3329,Other Fabricated Metal Product Manufacturing,33,,"NAICS Code: 3329 - Other Fabricated Metal Product Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",492,17,509,1,Critical Manufacturing Sector
+686,3331,"Agriculture, Construction, and Mining Machinery Manufacturing",33,,"NAICS Code: 3331 - Agriculture, Construction, and Mining Machinery Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",494,17,511,1,Critical Manufacturing Sector
+695,3332,Industrial Machinery Manufacturing,33,,"NAICS Code: 3332 - Industrial Machinery Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",489,17,506,1,Critical Manufacturing Sector
+701,3333,Commercial and Service Industry Machinery Manufacturing,33,,"NAICS Code: 3333 - Commercial and Service Industry Machinery Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",492,17,509,1,Critical Manufacturing Sector
+704,3334,"Ventilation, Heating, Air-Conditioning, and Commercial Refrigeration Equipment Manufacturing",33,,"NAICS Code: 3334 - Ventilation, Heating, Air-Conditioning, and Commercial Refrigeration Equipment Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",504,10,514,0,
+709,3335,Metalworking Machinery Manufacturing,33,,"NAICS Code: 3335 - Metalworking Machinery Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",492,17,509,1,Critical Manufacturing Sector
+716,3336,"Engine, Turbine, and Power Transmission Equipment Manufacturing",33,,"NAICS Code: 3336 - Engine, Turbine, and Power Transmission Equipment Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",497,17,514,1,Critical Manufacturing Sector
+722,3339,Other General Purpose Machinery Manufacturing,33,,"NAICS Code: 3339 - Other General Purpose Machinery Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",491,17,508,1,Critical Manufacturing Sector
+740,3341,Computer and Peripheral Equipment Manufacturing,33,,"NAICS Code: 3341 - Computer and Peripheral Equipment Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Information Technology Sector.",491,17,508,1,Information Technology Sector
+745,3342,Communications Equipment Manufacturing,33,,"NAICS Code: 3342 - Communications Equipment Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Communications Sector.",488,16,504,1,Communications Sector
+752,3343,Audio and Video Equipment Manufacturing,33,,"NAICS Code: 3343 - Audio and Video Equipment Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",490,10,500,0,
+755,3344,Semiconductor and Other Electronic Component Manufacturing,33,,"NAICS Code: 3344 - Semiconductor and Other Electronic Component Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Information Technology Sector.",492,17,509,1,Information Technology Sector
+763,3345,"Navigational, Measuring, Electromedical, and Control Instruments Manufacturing",33,,"NAICS Code: 3345 - Navigational, Measuring, Electromedical, and Control Instruments Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",502,17,519,1,Critical Manufacturing Sector
+774,3346,Manufacturing and Reproducing Magnetic and Optical Media,33,,"NAICS Code: 3346 - Manufacturing and Reproducing Magnetic and Optical Media
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Information Technology Sector.",496,17,513,1,Information Technology Sector
+778,3351,Electric Lighting Equipment Manufacturing,33,,"NAICS Code: 3351 - Electric Lighting Equipment Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",490,17,507,1,Critical Manufacturing Sector
+783,3352,Household Appliance Manufacturing,33,,"NAICS Code: 3352 - Household Appliance Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+788,3353,Electrical Equipment Manufacturing,33,,"NAICS Code: 3353 - Electrical Equipment Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",489,17,506,1,Critical Manufacturing Sector
+794,3359,Other Electrical Equipment and Component Manufacturing,33,,"NAICS Code: 3359 - Other Electrical Equipment and Component Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",492,17,509,1,Critical Manufacturing Sector
+807,3361,Motor Vehicle Manufacturing,33,,"NAICS Code: 3361 - Motor Vehicle Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",488,17,505,1,Critical Manufacturing Sector
+812,3362,Motor Vehicle Body and Trailer Manufacturing,33,,"NAICS Code: 3362 - Motor Vehicle Body and Trailer Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",492,17,509,1,Critical Manufacturing Sector
+818,3363,Motor Vehicle Parts Manufacturing,33,,"NAICS Code: 3363 - Motor Vehicle Parts Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",489,17,506,1,Critical Manufacturing Sector
+835,3364,Aerospace Product and Parts Manufacturing,33,,"NAICS Code: 3364 - Aerospace Product and Parts Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",491,17,508,1,Critical Manufacturing Sector
+843,3365,Railroad Rolling Stock Manufacturing,33,,"NAICS Code: 3365 - Railroad Rolling Stock Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",489,17,506,1,Transportation Systems Sector
+846,3366,Ship and Boat Building,33,,"NAICS Code: 3366 - Ship and Boat Building
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",490,17,507,1,Critical Manufacturing Sector
+850,3369,Other Transportation Equipment Manufacturing,33,,"NAICS Code: 3369 - Other Transportation Equipment Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",489,17,506,1,Critical Manufacturing Sector
+856,3371,Household and Institutional Furniture and Kitchen Cabinet Manufacturing,33,,"NAICS Code: 3371 - Household and Institutional Furniture and Kitchen Cabinet Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",496,10,506,0,
+864,3372,Office Furniture (including Fixtures) Manufacturing,33,,"NAICS Code: 3372 - Office Furniture (including Fixtures) Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",494,10,504,0,
+870,3379,Other Furniture Related Product Manufacturing,33,,"NAICS Code: 3379 - Other Furniture Related Product Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+876,3391,Medical Equipment and Supplies Manufacturing,33,,"NAICS Code: 3391 - Medical Equipment and Supplies Manufacturing
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",491,19,510,1,Healthcare and Public Health Sector
+883,3399,Other Miscellaneous Manufacturing,33,,"NAICS Code: 3399 - Other Miscellaneous Manufacturing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+903,4231,Motor Vehicle and Motor Vehicle Parts and Supplies Merchant Wholesalers ,42,Wholesale Trade,"NAICS Code: 4231 - Motor Vehicle and Motor Vehicle Parts and Supplies Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",501,17,518,1,Critical Manufacturing Sector
+912,4232,Furniture and Home Furnishing Merchant Wholesalers ,42,Wholesale Trade,"NAICS Code: 4232 - Furniture and Home Furnishing Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",499,10,509,0,
+917,4233,Lumber and Other Construction Materials Merchant Wholesalers ,42,Wholesale Trade,"NAICS Code: 4233 - Lumber and Other Construction Materials Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",498,10,508,0,
+926,4234,Professional and Commercial Equipment and Supplies Merchant Wholesalers ,42,Wholesale Trade,"NAICS Code: 4234 - Professional and Commercial Equipment and Supplies Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",499,10,509,0,
+941,4235,Metal and Mineral (except Petroleum) Merchant Wholesalers ,42,Wholesale Trade,"NAICS Code: 4235 - Metal and Mineral (except Petroleum) Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",501,17,518,1,Critical Manufacturing Sector
+946,4236,Household Appliances and Electrical and Electronic Goods Merchant Wholesalers ,42,Wholesale Trade,"NAICS Code: 4236 - Household Appliances and Electrical and Electronic Goods Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",504,10,514,0,
+953,4237,"Hardware, and Plumbing and Heating Equipment and Supplies Merchant Wholesalers ",42,Wholesale Trade,"NAICS Code: 4237 - Hardware, and Plumbing and Heating Equipment and Supplies Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",506,10,516,0,
+962,4238,"Machinery, Equipment, and Supplies Merchant Wholesalers ",42,Wholesale Trade,"NAICS Code: 4238 - Machinery, Equipment, and Supplies Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",500,10,510,0,
+975,4239,Miscellaneous Durable Goods Merchant Wholesalers ,42,Wholesale Trade,"NAICS Code: 4239 - Miscellaneous Durable Goods Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",501,10,511,0,
+987,4241,Paper and Paper Product Merchant Wholesalers ,42,Wholesale Trade,"NAICS Code: 4241 - Paper and Paper Product Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",496,10,506,0,
+994,4242,Drugs and Druggists' Sundries Merchant Wholesalers ,42,Wholesale Trade,"NAICS Code: 4242 - Drugs and Druggists' Sundries Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",503,19,522,1,Healthcare and Public Health Sector
+997,4243,"Apparel, Piece Goods, and Notions Merchant Wholesalers ",42,Wholesale Trade,"NAICS Code: 4243 - Apparel, Piece Goods, and Notions Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",505,10,515,0,
+1004,4244,Grocery and Related Product Merchant Wholesalers ,42,Wholesale Trade,"NAICS Code: 4244 - Grocery and Related Product Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",497,18,515,1,Food and Agriculture Sector
+1023,4245,Farm Product Raw Material Merchant Wholesalers ,42,Wholesale Trade,"NAICS Code: 4245 - Farm Product Raw Material Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",496,18,514,1,Food and Agriculture Sector
+1030,4246,Chemical and Allied Products Merchant Wholesalers ,42,Wholesale Trade,"NAICS Code: 4246 - Chemical and Allied Products Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Chemical Sector.",496,16,512,1,Chemical Sector
+1035,4247,Petroleum and Petroleum Products Merchant Wholesalers ,42,Wholesale Trade,"NAICS Code: 4247 - Petroleum and Petroleum Products Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Energy Sector.",498,16,514,1,Energy Sector
+1040,4248,"Beer, Wine, and Distilled Alcoholic Beverage Merchant Wholesalers ",42,Wholesale Trade,"NAICS Code: 4248 - Beer, Wine, and Distilled Alcoholic Beverage Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",506,10,516,0,
+1045,4249,Miscellaneous Nondurable Goods Merchant Wholesalers ,42,Wholesale Trade,"NAICS Code: 4249 - Miscellaneous Nondurable Goods Merchant Wholesalers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",502,10,512,0,
+1059,4251,Wholesale Trade Agents and Brokers ,42,Wholesale Trade,"NAICS Code: 4251 - Wholesale Trade Agents and Brokers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",495,10,505,0,
+1064,4411,Automobile Dealers ,44,,"NAICS Code: 4411 - Automobile Dealers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",490,10,500,0,
+1069,4412,Other Motor Vehicle Dealers ,44,,"NAICS Code: 4412 - Other Motor Vehicle Dealers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+1075,4413,"Automotive Parts, Accessories, and Tire Retailers ",44,,"NAICS Code: 4413 - Automotive Parts, Accessories, and Tire Retailers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",498,10,508,0,
+1081,4441,Building Material and Supplies Dealers ,44,,"NAICS Code: 4441 - Building Material and Supplies Dealers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",493,10,503,0,
+1090,4442,Lawn and Garden Equipment and Supplies Retailers ,44,,"NAICS Code: 4442 - Lawn and Garden Equipment and Supplies Retailers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",496,10,506,0,
+1096,4451,Grocery and Convenience Retailers ,44,,"NAICS Code: 4451 - Grocery and Convenience Retailers 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",493,18,511,1,Food and Agriculture Sector
+1102,4452,Specialty Food Retailers ,44,,"NAICS Code: 4452 - Specialty Food Retailers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+1113,4453,"Beer, Wine, and Liquor Retailers ",44,,"NAICS Code: 4453 - Beer, Wine, and Liquor Retailers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",496,10,506,0,
+1117,4491,Furniture and Home Furnishings Retailers ,44,,"NAICS Code: 4491 - Furniture and Home Furnishings Retailers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",496,10,506,0,
+1124,4492,Electronics and Appliance Retailers ,44,,"NAICS Code: 4492 - Electronics and Appliance Retailers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",493,10,503,0,
+1128,4551,Department Stores ,45,,"NAICS Code: 4551 - Department Stores 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",489,10,499,0,
+1131,4552,"Warehouse Clubs, Supercenters, and Other General Merchandise Retailers ",45,,"NAICS Code: 4552 - Warehouse Clubs, Supercenters, and Other General Merchandise Retailers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",503,10,513,0,
+1136,4561,Health and Personal Care Retailers ,45,,"NAICS Code: 4561 - Health and Personal Care Retailers 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",492,19,511,1,Healthcare and Public Health Sector
+1147,4571,Gasoline Stations ,45,,"NAICS Code: 4571 - Gasoline Stations 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Energy Sector.",491,16,507,1,Energy Sector
+1152,4572,Fuel Dealers,45,,"NAICS Code: 4572 - Fuel Dealers
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Energy Sector.",489,16,505,1,Energy Sector
+1156,4581,Clothing and Clothing Accessories Retailers ,45,,"NAICS Code: 4581 - Clothing and Clothing Accessories Retailers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",495,10,505,0,
+1159,4582,Shoe Retailers ,45,,"NAICS Code: 4582 - Shoe Retailers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",490,10,500,0,
+1162,4583,"Jewelry, Luggage, and Leather Goods Retailers ",45,,"NAICS Code: 4583 - Jewelry, Luggage, and Leather Goods Retailers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",500,10,510,0,
+1168,4591,"Sporting Goods, Hobby, and Musical Instrument Retailers ",45,,"NAICS Code: 4591 - Sporting Goods, Hobby, and Musical Instrument Retailers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",500,10,510,0,
+1177,4592,Book Retailers and News Dealers ,45,,"NAICS Code: 4592 - Book Retailers and News Dealers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",493,10,503,0,
+1180,4593,Florists ,45,,"NAICS Code: 4593 - Florists 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",489,10,499,0,
+1183,4594,"Office Supplies, Stationery, and Gift Retailers ",45,,"NAICS Code: 4594 - Office Supplies, Stationery, and Gift Retailers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",499,10,509,0,
+1188,4595,Used Merchandise Retailers ,45,,"NAICS Code: 4595 - Used Merchandise Retailers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+1191,4599,Other Miscellaneous Retailers ,45,,"NAICS Code: 4599 - Other Miscellaneous Retailers 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",493,10,503,0,
+1203,4811,Scheduled Air Transportation,48,,"NAICS Code: 4811 - Scheduled Air Transportation
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",489,17,506,1,Transportation Systems Sector
+1207,4812,Nonscheduled Air Transportation,48,,"NAICS Code: 4812 - Nonscheduled Air Transportation
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",492,17,509,1,Transportation Systems Sector
+1213,4821,Rail Transportation,48,,"NAICS Code: 4821 - Rail Transportation
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",487,17,504,1,Transportation Systems Sector
+1218,4831,"Deep Sea, Coastal, and Great Lakes Water Transportation",48,,"NAICS Code: 4831 - Deep Sea, Coastal, and Great Lakes Water Transportation
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",496,17,513,1,Transportation Systems Sector
+1224,4832,Inland Water Transportation,48,,"NAICS Code: 4832 - Inland Water Transportation
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",489,17,506,1,Transportation Systems Sector
+1229,4841,General Freight Trucking,48,,"NAICS Code: 4841 - General Freight Trucking
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",491,17,508,1,Transportation Systems Sector
+1235,4842,Specialized Freight Trucking,48,,"NAICS Code: 4842 - Specialized Freight Trucking
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",492,17,509,1,Transportation Systems Sector
+1243,4851,Urban Transit Systems,48,,"NAICS Code: 4851 - Urban Transit Systems
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",488,17,505,1,Transportation Systems Sector
+1249,4852,Interurban and Rural Bus Transportation,48,,"NAICS Code: 4852 - Interurban and Rural Bus Transportation
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",493,17,510,1,Transportation Systems Sector
+1252,4853,Taxi and Limousine Service,48,,"NAICS Code: 4853 - Taxi and Limousine Service
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",493,10,503,0,
+1257,4854,School and Employee Bus Transportation,48,,"NAICS Code: 4854 - School and Employee Bus Transportation
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",490,17,507,1,Transportation Systems Sector
+1260,4855,Charter Bus Industry,48,,"NAICS Code: 4855 - Charter Bus Industry
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",488,10,498,0,
+1263,4859,Other Transit and Ground Passenger Transportation,48,,"NAICS Code: 4859 - Other Transit and Ground Passenger Transportation
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",492,17,509,1,Transportation Systems Sector
+1268,4861,Pipeline Transportation of Crude Oil,48,,"NAICS Code: 4861 - Pipeline Transportation of Crude Oil
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Energy Sector.",491,16,507,1,Energy Sector
+1271,4862,Pipeline Transportation of Natural Gas,48,,"NAICS Code: 4862 - Pipeline Transportation of Natural Gas
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Energy Sector.",490,16,506,1,Energy Sector
+1274,4869,Other Pipeline Transportation,48,,"NAICS Code: 4869 - Other Pipeline Transportation
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Energy Sector.",488,16,504,1,Energy Sector
+1280,4871,"Scenic and Sightseeing Transportation, Land",48,,"NAICS Code: 4871 - Scenic and Sightseeing Transportation, Land
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",496,10,506,0,
+1283,4872,"Scenic and Sightseeing Transportation, Water",48,,"NAICS Code: 4872 - Scenic and Sightseeing Transportation, Water
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",496,10,506,0,
+1286,4879,"Scenic and Sightseeing Transportation, Other",48,,"NAICS Code: 4879 - Scenic and Sightseeing Transportation, Other
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",496,10,506,0,
+1290,4881,Support Activities for Air Transportation,48,,"NAICS Code: 4881 - Support Activities for Air Transportation
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",490,17,507,1,Transportation Systems Sector
+1296,4882,Support Activities for Rail Transportation,48,,"NAICS Code: 4882 - Support Activities for Rail Transportation
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",490,17,507,1,Transportation Systems Sector
+1299,4883,Support Activities for Water Transportation,48,,"NAICS Code: 4883 - Support Activities for Water Transportation
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",490,17,507,1,Transportation Systems Sector
+1308,4884,Support Activities for Road Transportation,48,,"NAICS Code: 4884 - Support Activities for Road Transportation
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",490,17,507,1,Transportation Systems Sector
+1313,4885,Freight Transportation Arrangement,48,,"NAICS Code: 4885 - Freight Transportation Arrangement
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",490,17,507,1,Transportation Systems Sector
+1316,4889,Other Support Activities for Transportation,48,,"NAICS Code: 4889 - Other Support Activities for Transportation
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",490,17,507,1,Transportation Systems Sector
+1321,4911,Postal Service,49,,"NAICS Code: 4911 - Postal Service
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Communications Sector.",488,16,504,1,Communications Sector
+1325,4921,Couriers and Express Delivery Services,49,,"NAICS Code: 4921 - Couriers and Express Delivery Services
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Transportation Systems Sector.",493,17,510,1,Transportation Systems Sector
+1328,4922,Local Messengers and Local Delivery,49,,"NAICS Code: 4922 - Local Messengers and Local Delivery
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",493,10,503,0,
+1332,4931,Warehousing and Storage,49,,"NAICS Code: 4931 - Warehousing and Storage
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+1343,5121,Motion Picture and Video Industries,51,Information,"NAICS Code: 5121 - Motion Picture and Video Industries
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",490,10,500,0,
+1354,5122,Sound Recording Industries,51,Information,"NAICS Code: 5122 - Sound Recording Industries
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",488,10,498,0,
+1364,5131,"Newspaper, Periodical, Book, and Directory Publishers",51,Information,"NAICS Code: 5131 - Newspaper, Periodical, Book, and Directory Publishers
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",497,10,507,0,
+1376,5132,Software Publishers,51,Information,"NAICS Code: 5132 - Software Publishers
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Information Technology Sector.",487,17,504,1,Information Technology Sector
+1380,5161,Radio and Television Broadcasting Stations,51,Information,"NAICS Code: 5161 - Radio and Television Broadcasting Stations
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Communications Sector.",491,16,507,1,Communications Sector
+1385,5162,"Media Streaming Distribution Services, Social Networks, and Other Media Networks and Content Providers",51,Information,"NAICS Code: 5162 - Media Streaming Distribution Services, Social Networks, and Other Media Networks and Content Providers
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Communications Sector.",502,16,518,1,Communications Sector
+1389,5171,Wired and Wireless Telecommunications (except Satellite),51,Information,"NAICS Code: 5171 - Wired and Wireless Telecommunications (except Satellite)
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Communications Sector.",498,16,514,1,Communications Sector
+1396,5174,Satellite Telecommunications,51,Information,"NAICS Code: 5174 - Satellite Telecommunications
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Communications Sector.",489,16,505,1,Communications Sector
+1399,5178,All Other Telecommunications,51,Information,"NAICS Code: 5178 - All Other Telecommunications
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Communications Sector.",489,16,505,1,Communications Sector
+1403,5182,"Computing Infrastructure Providers, Data Processing, Web Hosting, and Related Services",51,Information,"NAICS Code: 5182 - Computing Infrastructure Providers, Data Processing, Web Hosting, and Related Services
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Information Technology Sector.",500,17,517,1,Information Technology Sector
+1407,5192,"Web Search Portals, Libraries, Archives, and Other Information Services",51,Information,"NAICS Code: 5192 - Web Search Portals, Libraries, Archives, and Other Information Services
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Information Technology Sector.",499,17,516,1,Information Technology Sector
+1414,5211,Monetary Authorities-Central Bank,52,Finance and Insurance,"NAICS Code: 5211 - Monetary Authorities-Central Bank
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Financial Services Sector.",492,17,509,1,Financial Services Sector
+1418,5221,Depository Credit Intermediation ,52,Finance and Insurance,"NAICS Code: 5221 - Depository Credit Intermediation 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Financial Services Sector.",493,17,510,1,Financial Services Sector
+1425,5222,Nondepository Credit Intermediation ,52,Finance and Insurance,"NAICS Code: 5222 - Nondepository Credit Intermediation 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Financial Services Sector.",495,17,512,1,Financial Services Sector
+1434,5223,Activities Related to Credit Intermediation ,52,Finance and Insurance,"NAICS Code: 5223 - Activities Related to Credit Intermediation 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Financial Services Sector.",493,17,510,1,Financial Services Sector
+1442,5231,Securities and Commodity Contracts Intermediation and Brokerage,52,Finance and Insurance,"NAICS Code: 5231 - Securities and Commodity Contracts Intermediation and Brokerage
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Financial Services Sector.",499,17,516,1,Financial Services Sector
+1447,5232,Securities and Commodity Exchanges,52,Finance and Insurance,"NAICS Code: 5232 - Securities and Commodity Exchanges
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Financial Services Sector.",491,17,508,1,Financial Services Sector
+1450,5239,Other Financial Investment Activities,52,Finance and Insurance,"NAICS Code: 5239 - Other Financial Investment Activities
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Financial Services Sector.",489,17,506,1,Financial Services Sector
+1459,5241,Insurance Carriers,52,Finance and Insurance,"NAICS Code: 5241 - Insurance Carriers
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Financial Services Sector.",488,17,505,1,Financial Services Sector
+1469,5242,"Agencies, Brokerages, and Other Insurance Related Activities",52,Finance and Insurance,"NAICS Code: 5242 - Agencies, Brokerages, and Other Insurance Related Activities
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Financial Services Sector.",498,17,515,1,Financial Services Sector
+1477,5251,Insurance and Employee Benefit Funds ,52,Finance and Insurance,"NAICS Code: 5251 - Insurance and Employee Benefit Funds 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Financial Services Sector.",493,17,510,1,Financial Services Sector
+1484,5259,Other Investment Pools and Funds,52,Finance and Insurance,"NAICS Code: 5259 - Other Investment Pools and Funds
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Financial Services Sector.",492,17,509,1,Financial Services Sector
+1493,5311,Lessors of Real Estate,53,Real Estate and Rental and Leasing,"NAICS Code: 5311 - Lessors of Real Estate
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+1502,5312,Offices of Real Estate Agents and Brokers,53,Real Estate and Rental and Leasing,"NAICS Code: 5312 - Offices of Real Estate Agents and Brokers
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",496,10,506,0,
+1505,5313,Activities Related to Real Estate,53,Real Estate and Rental and Leasing,"NAICS Code: 5313 - Activities Related to Real Estate
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",490,10,500,0,
+1514,5321,Automotive Equipment Rental and Leasing,53,Real Estate and Rental and Leasing,"NAICS Code: 5321 - Automotive Equipment Rental and Leasing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",494,10,504,0,
+1520,5322,Consumer Goods Rental,53,Real Estate and Rental and Leasing,"NAICS Code: 5322 - Consumer Goods Rental
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",490,10,500,0,
+1529,5323,General Rental Centers,53,Real Estate and Rental and Leasing,"NAICS Code: 5323 - General Rental Centers
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",489,10,499,0,
+1532,5324,Commercial and Industrial Machinery and Equipment Rental and Leasing,53,Real Estate and Rental and Leasing,"NAICS Code: 5324 - Commercial and Industrial Machinery and Equipment Rental and Leasing
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",498,10,508,0,
+1541,5331,Lessors of Nonfinancial Intangible Assets (except Copyrighted Works),53,Real Estate and Rental and Leasing,"NAICS Code: 5331 - Lessors of Nonfinancial Intangible Assets (except Copyrighted Works)
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",507,10,517,0,
+1546,5411,Legal Services,54,"Professional, Scientific, and Technical Services","NAICS Code: 5411 - Legal Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",487,10,497,0,
+1554,5412,"Accounting, Tax Preparation, Bookkeeping, and Payroll Services",54,"Professional, Scientific, and Technical Services","NAICS Code: 5412 - Accounting, Tax Preparation, Bookkeeping, and Payroll Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",502,10,512,0,
+1560,5413,"Architectural, Engineering, and Related Services",54,"Professional, Scientific, and Technical Services","NAICS Code: 5413 - Architectural, Engineering, and Related Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",493,10,503,0,
+1577,5414,Specialized Design Services,54,"Professional, Scientific, and Technical Services","NAICS Code: 5414 - Specialized Design Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",489,10,499,0,
+1586,5415,Computer Systems Design and Related Services,54,"Professional, Scientific, and Technical Services","NAICS Code: 5415 - Computer Systems Design and Related Services
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Information Technology Sector.",491,17,508,1,Information Technology Sector
+1592,5416,"Management, Scientific, and Technical Consulting Services",54,"Professional, Scientific, and Technical Services","NAICS Code: 5416 - Management, Scientific, and Technical Consulting Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",494,10,504,0,
+1603,5417,Scientific Research and Development Services,54,"Professional, Scientific, and Technical Services","NAICS Code: 5417 - Scientific Research and Development Services
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Defense Industrial Base Sector.",490,18,508,1,Defense Industrial Base Sector
+1610,5418,"Advertising, Public Relations, and Related Services",54,"Professional, Scientific, and Technical Services","NAICS Code: 5418 - Advertising, Public Relations, and Related Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",494,10,504,0,
+1627,5419,"Other Professional, Scientific, and Technical Services",54,"Professional, Scientific, and Technical Services","NAICS Code: 5419 - Other Professional, Scientific, and Technical Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",493,10,503,0,
+1641,5511,Management of Companies and Enterprises,55,Management of Companies and Enterprises,"NAICS Code: 5511 - Management of Companies and Enterprises
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+1648,5611,Office Administrative Services,56,Administrative and Support and Waste Management and Remediation Services,"NAICS Code: 5611 - Office Administrative Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",488,10,498,0,
+1651,5612,Facilities Support Services,56,Administrative and Support and Waste Management and Remediation Services,"NAICS Code: 5612 - Facilities Support Services
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Government Facilities Sector.",489,18,507,1,Government Facilities Sector
+1654,5613,Employment Services,56,Administrative and Support and Waste Management and Remediation Services,"NAICS Code: 5613 - Employment Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",487,10,497,0,
+1662,5614,Business Support Services,56,Administrative and Support and Waste Management and Remediation Services,"NAICS Code: 5614 - Business Support Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",488,10,498,0,
+1679,5615,Travel Arrangement and Reservation Services,56,Administrative and Support and Waste Management and Remediation Services,"NAICS Code: 5615 - Travel Arrangement and Reservation Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",492,10,502,0,
+1687,5616,Investigation and Security Services,56,Administrative and Support and Waste Management and Remediation Services,"NAICS Code: 5616 - Investigation and Security Services
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Emergency Services Sector.",489,17,506,1,Emergency Services Sector
+1695,5617,Services to Buildings and Dwellings,56,Administrative and Support and Waste Management and Remediation Services,"NAICS Code: 5617 - Services to Buildings and Dwellings
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",493,10,503,0,
+1706,5619,Other Support Services,56,Administrative and Support and Waste Management and Remediation Services,"NAICS Code: 5619 - Other Support Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",488,10,498,0,
+1714,5621,Waste Collection ,56,Administrative and Support and Waste Management and Remediation Services,"NAICS Code: 5621 - Waste Collection 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Water and Wastewater Systems Sector.",489,22,511,1,Water and Wastewater Systems Sector
+1719,5622,Waste Treatment and Disposal ,56,Administrative and Support and Waste Management and Remediation Services,"NAICS Code: 5622 - Waste Treatment and Disposal 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Water and Wastewater Systems Sector.",492,22,514,1,Water and Wastewater Systems Sector
+1725,5629,Remediation and Other Waste Management Services ,56,Administrative and Support and Waste Management and Remediation Services,"NAICS Code: 5629 - Remediation and Other Waste Management Services 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",495,10,505,0,
+1735,6111,Elementary and Secondary Schools,61,Educational Services,"NAICS Code: 6111 - Elementary and Secondary Schools
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Government Facilities Sector.",489,18,507,1,Government Facilities Sector
+1738,6112,Junior Colleges,61,Educational Services,"NAICS Code: 6112 - Junior Colleges
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",488,10,498,0,
+1741,6113,"Colleges, Universities, and Professional Schools",61,Educational Services,"NAICS Code: 6113 - Colleges, Universities, and Professional Schools
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",493,10,503,0,
+1744,6114,Business Schools and Computer and Management Training,61,Educational Services,"NAICS Code: 6114 - Business Schools and Computer and Management Training
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",492,10,502,0,
+1751,6115,Technical and Trade Schools ,61,Educational Services,"NAICS Code: 6115 - Technical and Trade Schools 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",490,10,500,0,
+1757,6116,Other Schools and Instruction,61,Educational Services,"NAICS Code: 6116 - Other Schools and Instruction
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",490,10,500,0,
+1768,6117,Educational Support Services,61,Educational Services,"NAICS Code: 6117 - Educational Support Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",488,10,498,0,
+1773,6211,Offices of Physicians,62,Health Care and Social Assistance,"NAICS Code: 6211 - Offices of Physicians
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",490,19,509,1,Healthcare and Public Health Sector
+1777,6212,Offices of Dentists,62,Health Care and Social Assistance,"NAICS Code: 6212 - Offices of Dentists
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+1780,6213,Offices of Other Health Practitioners,62,Health Care and Social Assistance,"NAICS Code: 6213 - Offices of Other Health Practitioners
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",492,19,511,1,Healthcare and Public Health Sector
+1792,6214,Outpatient Care Centers,62,Health Care and Social Assistance,"NAICS Code: 6214 - Outpatient Care Centers
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",491,19,510,1,Healthcare and Public Health Sector
+1802,6215,Medical and Diagnostic Laboratories,62,Health Care and Social Assistance,"NAICS Code: 6215 - Medical and Diagnostic Laboratories
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",491,19,510,1,Healthcare and Public Health Sector
+1806,6216,Home Health Care Services,62,Health Care and Social Assistance,"NAICS Code: 6216 - Home Health Care Services
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",489,19,508,1,Healthcare and Public Health Sector
+1809,6219,Other Ambulatory Health Care Services,62,Health Care and Social Assistance,"NAICS Code: 6219 - Other Ambulatory Health Care Services
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",492,19,511,1,Healthcare and Public Health Sector
+1816,6221,General Medical and Surgical Hospitals,62,Health Care and Social Assistance,"NAICS Code: 6221 - General Medical and Surgical Hospitals
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",492,19,511,1,Healthcare and Public Health Sector
+1819,6222,Psychiatric and Substance Abuse Hospitals,62,Health Care and Social Assistance,"NAICS Code: 6222 - Psychiatric and Substance Abuse Hospitals
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",494,19,513,1,Healthcare and Public Health Sector
+1822,6223,Specialty (except Psychiatric and Substance Abuse) Hospitals,62,Health Care and Social Assistance,"NAICS Code: 6223 - Specialty (except Psychiatric and Substance Abuse) Hospitals
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",499,19,518,1,Healthcare and Public Health Sector
+1826,6231,Nursing Care Facilities (Skilled Nursing Facilities),62,Health Care and Social Assistance,"NAICS Code: 6231 - Nursing Care Facilities (Skilled Nursing Facilities)
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",498,19,517,1,Healthcare and Public Health Sector
+1829,6232,"Residential Intellectual and Developmental Disability, Mental Health, and Substance Abuse Facilities",62,Health Care and Social Assistance,"NAICS Code: 6232 - Residential Intellectual and Developmental Disability, Mental Health, and Substance Abuse Facilities
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",505,19,524,1,Healthcare and Public Health Sector
+1834,6233,Continuing Care Retirement Communities and Assisted Living Facilities for the Elderly,62,Health Care and Social Assistance,"NAICS Code: 6233 - Continuing Care Retirement Communities and Assisted Living Facilities for the Elderly
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",501,19,520,1,Healthcare and Public Health Sector
+1838,6239,Other Residential Care Facilities,62,Health Care and Social Assistance,"NAICS Code: 6239 - Other Residential Care Facilities
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Healthcare and Public Health Sector.",491,19,510,1,Healthcare and Public Health Sector
+1842,6241,Individual and Family Services,62,Health Care and Social Assistance,"NAICS Code: 6241 - Individual and Family Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",489,10,499,0,
+1849,6242,"Community Food and Housing, and Emergency and Other Relief Services",62,Health Care and Social Assistance,"NAICS Code: 6242 - Community Food and Housing, and Emergency and Other Relief Services
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Emergency Services Sector.",496,17,513,1,Emergency Services Sector
+1857,6243,Vocational Rehabilitation Services,62,Health Care and Social Assistance,"NAICS Code: 6243 - Vocational Rehabilitation Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+1860,6244,Child Care Services,62,Health Care and Social Assistance,"NAICS Code: 6244 - Child Care Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",488,10,498,0,
+1865,7111,Performing Arts Companies,71,"Arts, Entertainment, and Recreation","NAICS Code: 7111 - Performing Arts Companies
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Commercial Facilities Sector.",489,18,507,1,Commercial Facilities Sector
+1874,7112,Spectator Sports,71,"Arts, Entertainment, and Recreation","NAICS Code: 7112 - Spectator Sports
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",489,10,499,0,
+1879,7113,"Promoters of Performing Arts, Sports, and Similar Events",71,"Arts, Entertainment, and Recreation","NAICS Code: 7113 - Promoters of Performing Arts, Sports, and Similar Events
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",498,10,508,0,
+1884,7114,"Agents and Managers for Artists, Athletes, Entertainers, and Other Public Figures",71,"Arts, Entertainment, and Recreation","NAICS Code: 7114 - Agents and Managers for Artists, Athletes, Entertainers, and Other Public Figures
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",504,10,514,0,
+1887,7115,"Independent Artists, Writers, and Performers",71,"Arts, Entertainment, and Recreation","NAICS Code: 7115 - Independent Artists, Writers, and Performers
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",493,10,503,0,
+1891,7121,"Museums, Historical Sites, and Similar Institutions",71,"Arts, Entertainment, and Recreation","NAICS Code: 7121 - Museums, Historical Sites, and Similar Institutions
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",494,10,504,0,
+1901,7131,Amusement Parks and Arcades,71,"Arts, Entertainment, and Recreation","NAICS Code: 7131 - Amusement Parks and Arcades
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",494,10,504,0,
+1906,7132,Gambling Industries,71,"Arts, Entertainment, and Recreation","NAICS Code: 7132 - Gambling Industries
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",488,10,498,0,
+1911,7139,Other Amusement and Recreation Industries,71,"Arts, Entertainment, and Recreation","NAICS Code: 7139 - Other Amusement and Recreation Industries
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",493,10,503,0,
+1926,7211,Traveler Accommodation,72,Accommodation and Food Services,"NAICS Code: 7211 - Traveler Accommodation
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Commercial Facilities Sector.",490,18,508,1,Commercial Facilities Sector
+1934,7212,RV (Recreational Vehicle) Parks and Recreational Camps,72,Accommodation and Food Services,"NAICS Code: 7212 - RV (Recreational Vehicle) Parks and Recreational Camps
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",498,10,508,0,
+1938,7213,"Rooming and Boarding Houses, Dormitories, and Workers' Camps",72,Accommodation and Food Services,"NAICS Code: 7213 - Rooming and Boarding Houses, Dormitories, and Workers' Camps
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",503,10,513,0,
+1942,7223,Special Food Services,72,Accommodation and Food Services,"NAICS Code: 7223 - Special Food Services
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",488,10,498,0,
+1949,7224,Drinking Places (Alcoholic Beverages),72,Accommodation and Food Services,"NAICS Code: 7224 - Drinking Places (Alcoholic Beverages)
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",496,10,506,0,
+1952,7225,Restaurants and Other Eating Places,72,Accommodation and Food Services,"NAICS Code: 7225 - Restaurants and Other Eating Places
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Food and Agriculture Sector.",492,18,510,1,Food and Agriculture Sector
+1960,8111,Automotive Repair and Maintenance,81,Other Services (except Public Administration),"NAICS Code: 8111 - Automotive Repair and Maintenance
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",492,10,502,0,
+1971,8112,Electronic and Precision Equipment Repair and Maintenance,81,Other Services (except Public Administration),"NAICS Code: 8112 - Electronic and Precision Equipment Repair and Maintenance
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Information Technology Sector.",495,17,512,1,Information Technology Sector
+1974,8113,Commercial and Industrial Machinery and Equipment (except Automotive and Electronic) Repair and Maintenance,81,Other Services (except Public Administration),"NAICS Code: 8113 - Commercial and Industrial Machinery and Equipment (except Automotive and Electronic) Repair and Maintenance
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Critical Manufacturing Sector.",504,17,521,1,Critical Manufacturing Sector
+1977,8114,Personal and Household Goods Repair and Maintenance,81,Other Services (except Public Administration),"NAICS Code: 8114 - Personal and Household Goods Repair and Maintenance
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",496,10,506,0,
+1988,8121,Personal Care Services ,81,Other Services (except Public Administration),"NAICS Code: 8121 - Personal Care Services 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",489,10,499,0,
+1996,8122,Death Care Services ,81,Other Services (except Public Administration),"NAICS Code: 8122 - Death Care Services 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",489,10,499,0,
+2001,8123,Drycleaning and Laundry Services ,81,Other Services (except Public Administration),"NAICS Code: 8123 - Drycleaning and Laundry Services 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",497,10,507,0,
+2009,8129,Other Personal Services ,81,Other Services (except Public Administration),"NAICS Code: 8129 - Other Personal Services 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",489,10,499,0,
+2020,8131,Religious Organizations ,81,Other Services (except Public Administration),"NAICS Code: 8131 - Religious Organizations 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",488,10,498,0,
+2023,8132,Grantmaking and Giving Services ,81,Other Services (except Public Administration),"NAICS Code: 8132 - Grantmaking and Giving Services 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",494,10,504,0,
+2028,8133,Social Advocacy Organizations ,81,Other Services (except Public Administration),"NAICS Code: 8133 - Social Advocacy Organizations 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",490,10,500,0,
+2033,8134,Civic and Social Organizations ,81,Other Services (except Public Administration),"NAICS Code: 8134 - Civic and Social Organizations 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+2036,8139,"Business, Professional, Labor, Political, and Similar Organizations ",81,Other Services (except Public Administration),"NAICS Code: 8139 - Business, Professional, Labor, Political, and Similar Organizations 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",497,10,507,0,
+2048,8141,Private Households,81,Other Services (except Public Administration),"NAICS Code: 8141 - Private Households
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",488,10,498,0,
+2053,9211,"Executive, Legislative, and Other General Government Support ",92,Public Administration,"NAICS Code: 9211 - Executive, Legislative, and Other General Government Support 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Government Facilities Sector.",495,18,513,1,Government Facilities Sector
+2067,9221,"Justice, Public Order, and Safety Activities ",92,Public Administration,"NAICS Code: 9221 - Justice, Public Order, and Safety Activities 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Emergency Services Sector.",494,17,511,1,Emergency Services Sector
+2083,9231,Administration of Human Resource Programs ,92,Public Administration,"NAICS Code: 9231 - Administration of Human Resource Programs 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",491,10,501,0,
+2093,9241,Administration of Environmental Quality Programs ,92,Public Administration,"NAICS Code: 9241 - Administration of Environmental Quality Programs 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Government Facilities Sector.",491,18,509,1,Government Facilities Sector
+2099,9251,"Administration of Housing Programs, Urban Planning, and Community Development ",92,Public Administration,"NAICS Code: 9251 - Administration of Housing Programs, Urban Planning, and Community Development 
+
+Is this a Critical Infrastructure sector?","No, not critical national infrastructure.",497,10,507,0,
+2105,9261,Administration of Economic Programs ,92,Public Administration,"NAICS Code: 9261 - Administration of Economic Programs 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Government Facilities Sector.",490,18,508,1,Government Facilities Sector
+2117,9271,Space Research and Technology ,92,Public Administration,"NAICS Code: 9271 - Space Research and Technology 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Defense Industrial Base Sector.",490,18,508,1,Defense Industrial Base Sector
+2121,9281,National Security and International Affairs ,92,Public Administration,"NAICS Code: 9281 - National Security and International Affairs 
+
+Is this a Critical Infrastructure sector?","Yes, critical national infrastructure. Mainly in Government Facilities Sector.",491,18,509,1,Government Facilities Sector
