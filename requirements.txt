@@ -10,6 +10,6 @@ requests>=2.28.2
 nltk>=3.8.1
 anthropic>=0.8.0
 openai>=1.6.0
-aisitools>=0.1.0
+# aisitools>=0.1.0
 python-dotenv>=1.0.0
 openpyxl>=3.1.2
