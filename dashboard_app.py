@@ -170,7 +170,7 @@ def calculate_summaries(_df, naics_csv_path):
 st.title("Hugging Face AI Model Analysis by NAICS Sector")
 st.markdown(f"""
 Analysis of AI models on Hugging Face Hub, categorized by potential relevance
-to NAICS sectors using associated keywords found in model tags. Note: Quick 1-day trial to understand tractability of dashboards. 
+to NAICS sectors using associated keywords found in model tags. DISLAIMER: Quick 1-day trial to test end-to-end indicator dashboard implementation.
 Needs update to focus on FrontierAI only & temporal trend.
 *Data collected around: {config_utils.CURRENT_DATE_STR}*
 """)
