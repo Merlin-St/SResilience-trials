@@ -9,7 +9,7 @@ from huggingface_hub import HfApi, list_models
 import pandas as pd # Needed for DataFrame creation in run script
 
 # Import logger and constants from config_utils
-from config_utils import logger, API_DELAY, MODELS_PER_KEYWORD
+from hf_models_monitoring_test.config_utils import logger, API_DELAY, MODELS_PER_KEYWORD
 
 # --- Data Collection Functions (Phase 2 Helpers) ---
 def safe_get_models(api, search_term, limit, search_type='filter'):

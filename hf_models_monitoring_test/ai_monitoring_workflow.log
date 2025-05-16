@@ -1,0 +1,16 @@
+2025-05-16 13:54:17,154 - INFO - config_utils - <module> - Configuration and Logging Setup Complete.
+2025-05-16 13:54:17,156 - INFO - bulk_mcp_config - <module> - Bulk MCP Download Configuration and Logging Setup Complete.
+2025-05-16 13:54:17,339 - INFO - local_mcp_dashboard - get_analyzed_mcp_data - Attempting to load and analyze MCP data for dashboard...
+2025-05-16 13:54:17,340 - INFO - local_mcp_analysis - load_bulk_mcp_data - Loading bulk MCP data from: all_mcp_server_details_complete.json
+2025-05-16 13:54:17,582 - INFO - local_mcp_analysis - load_bulk_mcp_data - Successfully loaded 6465 records into DataFrame.
+2025-05-16 13:54:17,586 - INFO - local_mcp_analysis - match_server_to_keywords - Starting keyword matching for servers...
+2025-05-16 13:54:17,587 - INFO - local_mcp_analysis - match_server_to_keywords - Processing for category: matched_finance_sectors
+2025-05-16 13:54:18,172 - INFO - local_mcp_analysis - match_server_to_keywords - Finished processing for matched_finance_sectors. Example matches: 48 servers.
+2025-05-16 13:54:18,175 - INFO - local_mcp_analysis - match_server_to_keywords - Processing for category: matched_threat_models
+2025-05-16 13:54:18,730 - INFO - local_mcp_analysis - match_server_to_keywords - Finished processing for matched_threat_models. Example matches: 0 servers.
+2025-05-16 13:54:18,730 - INFO - local_mcp_analysis - match_server_to_keywords - Keyword matching complete.
+2025-05-16 13:54:18,731 - INFO - local_mcp_analysis - analyze_server_affordances - Starting financial affordance analysis for server tools...
+2025-05-16 13:54:19,083 - INFO - local_mcp_analysis - analyze_server_affordances - Processed affordance 'execution'. Found in 4 servers.
+2025-05-16 13:54:19,084 - INFO - local_mcp_analysis - analyze_server_affordances - Financial affordance analysis complete.
+2025-05-16 13:54:19,127 - INFO - local_mcp_analysis - generate_category_summary - No data to summarize for 'matched_threat_models' after cleaning.
+2025-05-16 13:54:19,128 - INFO - local_mcp_dashboard - get_analyzed_mcp_data - Data loading and analysis for dashboard complete.

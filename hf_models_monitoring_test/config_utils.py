@@ -16,7 +16,7 @@ LOG_FILE = "ai_monitoring_workflow.log" # General log file
 
 # --- Hugging Face Specific Configuration ---
 MODELS_PER_KEYWORD = 10 # Reduced for quicker test runs, adjust as needed
-API_DELAY = 0.01         # Seconds to wait between API calls
+API_DELAY = 0.001         # Seconds to wait between API calls
 
 # --- Smithery MCP Specific Configuration ---
 with open(os.path.expanduser("~/.cache/smithery-api/token")) as f:
@@ -24,39 +24,8 @@ with open(os.path.expanduser("~/.cache/smithery-api/token")) as f:
 MCP_API_BASE_URL = "https://registry.smithery.ai"
 MCP_OUTPUT_CSV_FILE = "mcp_servers_database.csv"
 MCP_REQUEST_TIMEOUT = 30  # Seconds for API request timeout
-MCP_PAGE_SIZE = 20 # Number of items per page for Smithery API
-
-# --- Keyword Definitions for MCP Monitoring ---
-
-# Finance Sector Keywords
-FINANCE_SECTOR_KEYWORDS_CONFIG = {
-    "Banks": ["banking", "financial institution", "depository", "lending", "credit union", "account management", "monetary policy"],
-    "Financial Trading and Markets": ["trading", "stock market", "securities", "brokerage", "exchange", "derivatives", "forex", "order execution", "market making", "clearing house"],
-    "Insurance": ["insurance", "underwriting", "actuarial", "claims processing", "reinsurance", "policy management", "insurtech"],
-    "Payments": ["payment processing", "money transfer", "digital wallet", "fintech payments", "transaction services", "settlement", "SWIFT", "ACH", "real-time payments"]
-}
-
-# Threat Model Keywords (Inspired by NAICS where possible, focused on AI risk)
-THREAT_MODEL_KEYWORDS_CONFIG = {
-    "Oversight Correlation Risk": ["regulatory compliance AI", "risk assessment AI", "credit scoring AI", "financial monitoring AI", "regtech llm"],
-    "Report Generation Risk": ["financial reporting AI", "audit automation AI", "risk analysis generation AI", "llm for audit"],
-    "Complex Product Design Risk": ["financial engineering AI", "derivatives modeling AI", "structured finance AI", "algorithmic product design AI", "synthetic assets AI"],
-    "Index Manipulation Risk": ["benchmark trading AI", "SOFR AI", "LIBOR AI", "market surveillance AI", "algorithmic trading monitoring"],
-    "Trading Algorithm Bug Risk": ["automated trading systems AI", "high-frequency trading AI", "AI code generation finance", "trading bot development AI", "algorithmic trading bugs"],
-    "Third-Party AI Failure Risk": ["foundation model finance", "shared AI infrastructure risk", "AI vendor risk management", "third party AI dependency"],
-    "AI-Enhanced Cyberattack Risk": ["cybersecurity finance AI", "AI fraud detection", "market abuse AI", "trade surveillance AI", "AI hacking tools finance"],
-    "Service Disruption Risk": ["core banking systems AI", "payment gateway AI", "operational resilience AI", "AI cyber attack payments", "AI denial of service finance"],
-    "Misinformation Bank Run Risk": ["market sentiment AI", "financial news analysis AI", "deepfake detection finance", "social media monitoring finance", "AI rumor detection"],
-    "Identity Fraud Risk": ["KYC AI", "AML AI", "biometric authentication finance", "synthetic identity detection AI", "AI identity theft finance"]
-}
-
-# Finance Affordance Keywords (for analyzing MCP server tools)
-FINANCE_AFFORDANCE_KEYWORDS_CONFIG = {
-    "execution": ["trade", "order", "execute", "wallet", "transaction", "send money", "payment", "settlement", "buy", "sell", "transfer", "manage account", "disburse", "submit", "invest", "withdraw", "deposit", "approve", "authorize", "instruct"],
-    "information_gathering": ["news", "screen", "market data", "research", "balance", "portfolio", "analytics", "financial statement", "get price", "fetch report", "query transaction", "monitor", "lookup", "retrieve", "verify", "check status", "history", "quote"],
-    "agent_interaction": ["chat", "negotiate", "message", "collaborate", "share data", "coordinate", "discuss", "alert", "notify", "communicate", "request information", "propose"]
-}
-
+MCP_PAGE_SIZE = 10000 # Number of items per page for Smithery API
+MCP_MAX_WORKERS = 20 # Max concurrent workers for fetching server details
 
 # --- Streamlit Log Handler (if needed for error display during loading) ---
 log_stream = StringIO()

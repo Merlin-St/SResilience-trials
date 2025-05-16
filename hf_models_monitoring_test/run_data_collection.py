@@ -7,9 +7,9 @@ import pandas as pd
 import logging # Need logging for potential errors during save
 
 # Import necessary functions and constants
-from config_utils import logger, NAICS_KEYWORDS_CSV, OUTPUT_CSV_FILE, MODELS_PER_KEYWORD, API_DELAY
-from data_processing import load_naics_keywords
-from hf_api_handler import collect_all_models
+from hf_models_monitoring_test.config_utils import logger, NAICS_KEYWORDS_CSV, OUTPUT_CSV_FILE, MODELS_PER_KEYWORD, API_DELAY
+from hf_models_monitoring_test.data_processing import load_naics_keywords
+from hf_models_monitoring_test.hf_api_handler import collect_all_models
 
 logger.info("--- Running Data Generation Script ---")
 
