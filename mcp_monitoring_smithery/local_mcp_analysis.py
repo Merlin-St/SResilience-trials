@@ -15,15 +15,14 @@ PUNKT_AVAILABLE = False
 word_tokenize_func = None
 
 # --- Setup Logger ---
-# Use a basic logger setup that doesn't depend on custom modules initially
 logger = logging.getLogger(__name__)
-if not logger.handlers: # Avoid adding multiple handlers if script is re-run in some environments
+if not logger.handlers:
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 # --- Attempt to import custom configurations and update logger if available ---
 try:
-    from hf_models_monitoring_test.config_utils import logger as custom_logger # Attempt to use custom logger
-    logger = custom_logger # Replace basic logger with custom one if successful
+    from hf_models_monitoring_test.config_utils import logger as custom_logger
+    logger = custom_logger
     logger.info("Successfully imported custom logger from hf_models_monitoring_test.config_utils.")
 except ImportError:
     logger.warning("Could not import custom logger from 'hf_models_monitoring_test.config_utils'. Using standard Python logger.")
@@ -31,31 +30,34 @@ except ImportError:
 # Initialize BULK_MCP_DETAILS_JSON_FILE with a default, to be overridden by import if successful
 BULK_MCP_DETAILS_JSON_FILE = "all_mcp_server_details_complete.json" # Default path
 
+# --- MODIFIED IMPORT ---
+# Import directly from bulk_mcp_config.py as it's in the same directory
+# when running streamlit from mcp_monitoring_smithery
 try:
-    from mcp_monitoring_smithery.bulk_mcp_config import (
+    from bulk_mcp_config import ( # MODIFIED HERE
         FINANCE_SECTOR_KEYWORDS_CONFIG as FS_CONFIG,
         THREAT_MODEL_KEYWORDS_CONFIG as TM_CONFIG,
         FINANCE_AFFORDANCE_KEYWORDS_CONFIG as FA_CONFIG,
         ALL_SERVERS_DETAILS_COMPLETE_JSON as IMPORTED_BULK_FILE_PATH
     )
-    logger.info("Successfully imported keyword configurations and data file path from mcp_monitoring_smithery.bulk_mcp_config.")
+    logger.info("Successfully imported keyword configurations and data file path from local 'bulk_mcp_config.py'.")
     FS_CONFIG = FS_CONFIG if FS_CONFIG is not None else {}
     TM_CONFIG = TM_CONFIG if TM_CONFIG is not None else {}
     FA_CONFIG = FA_CONFIG if FA_CONFIG is not None else {}
-    BULK_MCP_DETAILS_JSON_FILE = IMPORTED_BULK_FILE_PATH # Use imported path
-except ImportError:
-    logger.warning("Could not import configurations from 'mcp_monitoring_smithery.bulk_mcp_config'. "
-                   "Analysis will proceed with empty keyword sets and default data file path, unless overridden for testing.")
+    BULK_MCP_DETAILS_JSON_FILE = IMPORTED_BULK_FILE_PATH
+except ImportError as e:
+    logger.error(f"Could not import configurations from local 'bulk_mcp_config.py'. Error: {e}. "
+                   "Analysis will proceed with empty keyword sets and default data file path. THIS WILL RESULT IN NO MATCHES.")
     FS_CONFIG = {}
     TM_CONFIG = {}
     FA_CONFIG = {}
-    # BULK_MCP_DETAILS_JSON_FILE remains the default defined above
 
 # --- NLTK Setup ---
 try:
     from nltk.tokenize import word_tokenize
     try:
-        word_tokenize("test sentence for punkt availability") 
+        # Test if 'punkt' is available by trying to tokenize a sentence
+        word_tokenize("test sentence for punkt availability")
         word_tokenize_func = word_tokenize
         PUNKT_AVAILABLE = True
         logger.info("NLTK 'punkt' tokenizer is available and working.")
@@ -63,20 +65,25 @@ try:
         logger.warning("NLTK 'punkt' resource not found. Attempting to download 'punkt'...")
         try:
             nltk.download('punkt', quiet=True)
-            word_tokenize("test sentence post-download") 
+            # Verify after download
+            word_tokenize("test sentence post-download")
             word_tokenize_func = word_tokenize
             PUNKT_AVAILABLE = True
             logger.info("NLTK 'punkt' downloaded and tokenizer is now available.")
-        except Exception as download_err: 
+        except Exception as download_err:
             logger.error(f"Failed to download or use NLTK 'punkt' after attempt: {download_err}. "
+                           "Please try installing it manually in your Python environment by running: "
+                           "import nltk; nltk.download('punkt')\n"
                            "Falling back to basic whitespace tokenizer. Keyword matching accuracy might be reduced.")
-            PUNKT_AVAILABLE = False 
-    except Exception as e: 
+            PUNKT_AVAILABLE = False
+    except Exception as e:
         logger.error(f"An unexpected error occurred during NLTK word_tokenize setup: {e}. Falling back to basic whitespace tokenizer.")
         PUNKT_AVAILABLE = False
 
-except ImportError: 
-    logger.error("Failed to import 'nltk.tokenize'. Falling back to basic whitespace tokenizer.")
+except ImportError:
+    logger.error("Failed to import 'nltk.tokenize'. NLTK might not be installed. "
+                   "Please install it and try: import nltk; nltk.download('punkt')\n"
+                   "Falling back to basic whitespace tokenizer.")
     PUNKT_AVAILABLE = False
 
 if not PUNKT_AVAILABLE or word_tokenize_func is None: # Ensure fallback if any step failed
@@ -84,7 +91,7 @@ if not PUNKT_AVAILABLE or word_tokenize_func is None: # Ensure fallback if any s
         if not isinstance(text_input_ws, str): return []
         return text_input_ws.lower().split()
     word_tokenize_func = whitespace_tokenizer
-    if PUNKT_AVAILABLE: # If PUNKT_AVAILABLE was true but word_tokenize_func somehow None
+    if PUNKT_AVAILABLE:
         logger.warning("word_tokenize_func was not set despite PUNKT_AVAILABLE=True. Using fallback tokenizer.")
     else:
         logger.info("Using fallback whitespace tokenizer because NLTK 'punkt' is unavailable.")
@@ -106,12 +113,12 @@ def stem_text(text_to_stem):
         return ""
     
     try:
-        words = word_tokenize_func(text_to_stem.lower()) 
-        stemmed_words = [stemmer.stem(word) for word in words if word.isalnum()] 
+        words = word_tokenize_func(text_to_stem.lower())
+        stemmed_words = [stemmer.stem(word) for word in words if word.isalnum()]
         return " ".join(stemmed_words)
     except Exception as e:
         logger.error(f"Error during stemming text: '{text_to_stem[:50]}...': {e}")
-        return "" 
+        return ""
 
 def get_text_from_server(server_data_item):
     """
@@ -129,7 +136,7 @@ def get_text_from_server(server_data_item):
     def append_if_str(value):
         if isinstance(value, str):
             texts_to_search.append(value)
-        elif value is not None: 
+        elif value is not None:
             logger.debug(f"Non-string value encountered in get_text_from_server: {type(value)}, {str(value)[:50]}")
 
     append_if_str(server_data_item.get('displayName'))
@@ -137,18 +144,16 @@ def get_text_from_server(server_data_item):
     append_if_str(server_data_item.get('qualifiedName'))
 
     tools = server_data_item.get('tools', [])
-    if isinstance(tools, list): 
+    if isinstance(tools, list):
         for tool in tools:
-            if isinstance(tool, dict): 
+            if isinstance(tool, dict):
                 append_if_str(tool.get('name'))
                 append_if_str(tool.get('description'))
-            # else: # Optionally log if a tool item is not a dict
-                # logger.debug(f"Tool item is not a dictionary: {tool}")
-    elif tools: 
+    elif tools:
         q_name = server_data_item.get('qualifiedName', 'UnknownServer')
         logger.warning(f"Server {q_name} has 'tools' field that is not a list: {type(tools)}. Skipping tools text for this server.")
 
-    return " ".join(filter(None, texts_to_search)).lower() 
+    return " ".join(filter(None, texts_to_search)).lower()
 
 # --- Main Analysis Functions ---
 def match_server_to_keywords_stemmed(df_input, keyword_configs_map_input):
@@ -166,7 +171,7 @@ def match_server_to_keywords_stemmed(df_input, keyword_configs_map_input):
     logger.info("Starting keyword matching for servers (stemmed)...")
     if 'server_data' not in df_input.columns:
         logger.error("'server_data' column not found in DataFrame. Cannot perform keyword matching.")
-        if isinstance(keyword_configs_map_input, dict): # Check if it's a dict before iterating
+        if isinstance(keyword_configs_map_input, dict):
             for new_col_name_outer in keyword_configs_map_input.keys():
                 df_input[new_col_name_outer] = [[] for _ in range(len(df_input))]
                 df_input[f"{new_col_name_outer}_scores"] = [{} for _ in range(len(df_input))]
@@ -178,38 +183,48 @@ def match_server_to_keywords_stemmed(df_input, keyword_configs_map_input):
 
     stemmed_keyword_configs_map = {}
     for col_name, config in keyword_configs_map_input.items():
-        if not isinstance(config, dict):
-            logger.warning(f"Configuration for '{col_name}' is not a dictionary. Skipping this category set.")
+        if not isinstance(config, dict) or not config: # Check if config is empty
+            logger.warning(f"Configuration for '{col_name}' is not a dictionary or is empty. Skipping this category set.")
+            # Ensure columns are added so dashboard doesn't break, even if empty
+            df_input[col_name] = [[] for _ in range(len(df_input))]
+            df_input[f"{col_name}_scores"] = [{} for _ in range(len(df_input))]
             continue
+
         stemmed_config = {}
         for category, keywords in config.items():
             if isinstance(keywords, list):
-                stemmed_config[category] = [stem_text(kw) for kw in keywords if isinstance(kw, str) and kw.strip()] 
+                stemmed_config[category] = [stem_text(kw) for kw in keywords if isinstance(kw, str) and kw.strip()]
             else:
                 logger.warning(f"Keywords for category '{category}' in '{col_name}' is not a list. Skipping.")
-        stemmed_keyword_configs_map[col_name] = stemmed_config
+        if stemmed_config: # Only add if there are actual stemmed keywords
+            stemmed_keyword_configs_map[col_name] = stemmed_config
+        else: # If config was valid but produced no stemmed keywords (e.g. all keywords were empty strings)
+            logger.warning(f"Configuration for '{col_name}' resulted in no valid stemmed keywords. Skipping this category set.")
+            df_input[col_name] = [[] for _ in range(len(df_input))]
+            df_input[f"{col_name}_scores"] = [{} for _ in range(len(df_input))]
+
 
     for new_col_name, stemmed_keyword_config in stemmed_keyword_configs_map.items():
         logger.info(f"Processing keyword set for column: {new_col_name}")
         matched_categories_for_servers = []
-        match_scores_for_servers = [] 
+        match_scores_for_servers = []
 
         for index, row in df_input.iterrows():
             server_data = row['server_data']
             current_server_matches = set()
-            current_server_scores = {} 
+            current_server_scores = {}
 
             if not isinstance(server_data, dict):
                 logger.warning(f"Skipping row {index} due to invalid server_data (not a dict).")
             else:
                 text_to_search = get_text_from_server(server_data)
-                stemmed_text_to_search = stem_text(text_to_search) 
+                stemmed_text_to_search = stem_text(text_to_search)
 
-                if stemmed_text_to_search.strip(): 
+                if stemmed_text_to_search.strip():
                     for category, stemmed_keywords in stemmed_keyword_config.items():
                         matched_keyword_count_for_category = 0
                         for stemmed_keyword in stemmed_keywords:
-                            if not stemmed_keyword: continue 
+                            if not stemmed_keyword: continue
                             if re.search(r'\b' + re.escape(stemmed_keyword) + r'\b', stemmed_text_to_search, re.IGNORECASE):
                                 current_server_matches.add(category)
                                 matched_keyword_count_for_category +=1
@@ -238,25 +253,22 @@ def analyze_server_affordances(df_input, affordance_keyword_config_input):
         pd.DataFrame: DataFrame with added boolean columns for each affordance type and lists of matched tools.
     """
     logger.info("Starting server financial affordance analysis (stemmed)...")
+    default_aff_types_for_schema = ['execution', 'information_gathering', 'agent_interaction']
+
     if 'server_data' not in df_input.columns:
         logger.error("'server_data' column not found. Cannot perform affordance analysis.")
-        if isinstance(affordance_keyword_config_input, dict):
-            for aff_type_outer in affordance_keyword_config_input.keys():
-                df_input[f"has_finance_{aff_type_outer}"] = False
-                df_input[f"finance_{aff_type_outer}_tools"] = [[] for _ in range(len(df_input))]
+        for aff_type_outer in default_aff_types_for_schema: # Use default types for schema consistency
+            df_input[f"has_finance_{aff_type_outer}"] = False
+            df_input[f"finance_{aff_type_outer}_tools"] = [[] for _ in range(len(df_input))]
         return df_input
 
     if not isinstance(affordance_keyword_config_input, dict) or not affordance_keyword_config_input:
         logger.warning("Affordance keyword configuration is empty or invalid. Skipping affordance analysis.")
-        # Ensure expected columns are added even if empty, to prevent KeyErrors later
-        if isinstance(df_input, pd.DataFrame): # Check if df_input is a DataFrame
-             # Create some default affordance types if config is totally missing, for schema consistency
-            default_aff_types = ['execution', 'information_gathering', 'agent_interaction']
-            for aff_type_default in default_aff_types:
-                if f"has_finance_{aff_type_default}" not in df_input.columns:
-                     df_input[f"has_finance_{aff_type_default}"] = False
-                if f"finance_{aff_type_default}_tools" not in df_input.columns:
-                     df_input[f"finance_{aff_type_default}_tools"] = [[] for _ in range(len(df_input))]
+        for aff_type_default in default_aff_types_for_schema:
+            if f"has_finance_{aff_type_default}" not in df_input.columns:
+                 df_input[f"has_finance_{aff_type_default}"] = False
+            if f"finance_{aff_type_default}_tools" not in df_input.columns:
+                 df_input[f"finance_{aff_type_default}_tools"] = [[] for _ in range(len(df_input))]
         return df_input
 
 
@@ -268,8 +280,15 @@ def analyze_server_affordances(df_input, affordance_keyword_config_input):
             logger.warning(f"Keywords for affordance type '{affordance_type}' is not a list. Skipping this type.")
 
     # Initialize results lists for each affordance type that IS in the stemmed_affordance_config
-    affordance_results = {f"has_finance_{aff_type}": [False] * len(df_input) for aff_type in stemmed_affordance_config.keys()}
-    affordance_tool_matches = {f"finance_{aff_type}_tools": [[] for _ in range(len(df_input))] for aff_type in stemmed_affordance_config.keys()}
+    # or if the config is empty, initialize for default types
+    active_aff_types = list(stemmed_affordance_config.keys())
+    if not active_aff_types: # If affordance_keyword_config_input was empty or invalid
+        active_aff_types = default_aff_types_for_schema
+
+
+    affordance_results = {f"has_finance_{aff_type}": [False] * len(df_input) for aff_type in active_aff_types}
+    affordance_tool_matches = {f"finance_{aff_type}_tools": [[] for _ in range(len(df_input))] for aff_type in active_aff_types}
+
 
     for index, row in df_input.iterrows():
         server_data = row['server_data']
@@ -277,38 +296,44 @@ def analyze_server_affordances(df_input, affordance_keyword_config_input):
             continue
         
         tools = server_data.get('tools', [])
-        if not isinstance(tools, list): tools = [] 
+        if not isinstance(tools, list): tools = []
 
-        server_matched_tools_for_affordance = {aff_type: set() for aff_type in stemmed_affordance_config.keys()}
+        server_matched_tools_for_affordance = {aff_type: set() for aff_type in active_aff_types}
+
 
         for tool in tools:
-            if not isinstance(tool, dict): continue 
+            if not isinstance(tool, dict): continue
 
             tool_name = tool.get('name', '')
             tool_desc = tool.get('description', '')
-            tool_text_combined = f"{tool_name} {tool_desc}" 
+            tool_text_combined = f"{tool_name} {tool_desc}"
             stemmed_tool_text = stem_text(tool_text_combined)
 
             if not stemmed_tool_text.strip():
                 continue
-
-            for affordance_type, stemmed_keywords in stemmed_affordance_config.items(): # Iterate over valid, stemmed types
+            
+            # Iterate only over valid, stemmed types from the *input configuration*
+            for affordance_type, stemmed_keywords in stemmed_affordance_config.items(): 
                 for stemmed_keyword in stemmed_keywords:
                     if not stemmed_keyword: continue
                     if re.search(r'\b' + re.escape(stemmed_keyword) + r'\b', stemmed_tool_text, re.IGNORECASE):
-                        affordance_results[f"has_finance_{affordance_type}"][index] = True
-                        server_matched_tools_for_affordance[affordance_type].add(tool_name if tool_name else "UnnamedTool")
+                        # Ensure we only try to update keys that were initialized
+                        if f"has_finance_{affordance_type}" in affordance_results:
+                            affordance_results[f"has_finance_{affordance_type}"][index] = True
+                        if affordance_type in server_matched_tools_for_affordance: # Check against original keys from config
+                            server_matched_tools_for_affordance[affordance_type].add(tool_name if tool_name else "UnnamedTool")
         
-        for aff_type in stemmed_affordance_config.keys():
-            affordance_tool_matches[f"finance_{aff_type}_tools"][index] = list(server_matched_tools_for_affordance[aff_type])
+        for aff_type in active_aff_types: # Iterate using active_aff_types for consistent assignment
+             if f"finance_{aff_type}_tools" in affordance_tool_matches and aff_type in server_matched_tools_for_affordance:
+                affordance_tool_matches[f"finance_{aff_type}_tools"][index] = list(server_matched_tools_for_affordance[aff_type])
+
 
     for col_name, results_list in affordance_results.items():
         df_input[col_name] = results_list
     for col_name, matched_tools_list_of_lists in affordance_tool_matches.items():
         df_input[col_name] = matched_tools_list_of_lists
     
-    # Ensure all standard affordance columns exist, even if the config for them was missing
-    default_aff_types_for_schema = ['execution', 'information_gathering', 'agent_interaction']
+    # Ensure all standard affordance columns from default_aff_types_for_schema exist, even if config was missing
     for aff_type_schema in default_aff_types_for_schema:
         if f"has_finance_{aff_type_schema}" not in df_input.columns:
             df_input[f"has_finance_{aff_type_schema}"] = False
@@ -343,7 +368,7 @@ def run_full_mcp_analysis(df_servers_raw):
         # Add other expected columns as empty to prevent downstream errors
         expected_cols_on_error = [
             'qualifiedName', 'displayName', 'description', 'useCount', 'createdAt', 'toolCount',
-            'matched_finance_sectors', 'matched_finance_sectors_scores', 
+            'matched_finance_sectors', 'matched_finance_sectors_scores',
             'matched_threat_models', 'matched_threat_models_scores',
             'has_finance_execution', 'finance_execution_tools',
             'has_finance_information_gathering', 'finance_information_gathering_tools',
@@ -375,6 +400,13 @@ def run_full_mcp_analysis(df_servers_raw):
         'matched_finance_sectors': FS_CONFIG,
         'matched_threat_models': TM_CONFIG
     }
+    
+    # Log if configs are empty before calling matching function
+    if not FS_CONFIG:
+        logger.warning("FS_CONFIG (Finance Sector Keywords) is empty. 'matched_finance_sectors' will likely be empty.")
+    if not TM_CONFIG:
+        logger.warning("TM_CONFIG (Threat Model Keywords) is empty. 'matched_threat_models' will likely be empty.")
+
 
     df_analyzed = match_server_to_keywords_stemmed(df_analyzed, keyword_configs_to_use)
     df_analyzed = analyze_server_affordances(df_analyzed, FA_CONFIG)
@@ -385,8 +417,11 @@ def run_full_mcp_analysis(df_servers_raw):
         if total_servers > 0:
             coverage_percent = (servers_with_tools / total_servers) * 100
             logger.info(f"Tool data present for {servers_with_tools}/{total_servers} servers ({coverage_percent:.2f}% coverage).")
-            if coverage_percent < 50: 
-                logger.warning(f"Low percentage of servers with tool details found ({coverage_percent:.2f}%). Affordance analysis might be incomplete.")
+            if coverage_percent < 1.0 and servers_with_tools > 0 : # Adjusted threshold for warning to be more sensitive if some tools exist but very few
+                 logger.warning(f"Very low percentage of servers with tool details found ({coverage_percent:.2f}%). Affordance analysis might be incomplete.")
+            elif servers_with_tools == 0: # Specifically log if absolutely no tools are found
+                logger.warning("No servers found with tool details. Affordance analysis will not find any tool-based affordances.")
+
         elif total_servers == 0:
              logger.info("No servers found in the input data for analysis (after initial load).")
     else:
@@ -403,7 +438,7 @@ if __name__ == '__main__':
     logger.info("Running MCP Analysis Script directly for testing...")
     logger.info(f"Attempting to load test data from: {BULK_MCP_DETAILS_JSON_FILE}")
 
-    df_raw_test = pd.DataFrame() # Initialize empty DataFrame
+    df_raw_test = pd.DataFrame()
 
     if os.path.exists(BULK_MCP_DETAILS_JSON_FILE):
         try:
@@ -421,19 +456,7 @@ if __name__ == '__main__':
     else:
         logger.warning(f"Test data file '{BULK_MCP_DETAILS_JSON_FILE}' not found. "
                        "Proceeding with an empty DataFrame for testing. Analysis will be minimal.")
-        # To ensure the script can still run its course for basic checks, 
-        # we can create a very minimal placeholder if the file isn't found.
-        # However, per user request to not use sample data, we will proceed with empty.
-        # If you want a minimal placeholder for syntax checks when file is missing, uncomment below:
-        # placeholder_server_data = [{"qualifiedName": "test.placeholder", "displayName": "Test Placeholder", "description": "test", "tools": []}]
-        # df_raw_test = pd.DataFrame({'server_data': placeholder_server_data})
-        # logger.info("Using minimal placeholder data for testing as file was not found.")
 
-
-    # Keyword configurations will use FS_CONFIG, TM_CONFIG, FA_CONFIG as defined/imported at the top.
-    # If imports failed, they will be empty dicts, which is a valid test scenario.
-    # If imports succeeded, they will be the actual configs.
-    # No need to redefine them here with placeholders unless specifically testing override logic.
     logger.info(f"Using FS_CONFIG for test: {'Populated' if FS_CONFIG else 'Empty'}")
     logger.info(f"Using TM_CONFIG for test: {'Populated' if TM_CONFIG else 'Empty'}")
     logger.info(f"Using FA_CONFIG for test: {'Populated' if FA_CONFIG else 'Empty'}")
