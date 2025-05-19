@@ -6,7 +6,7 @@ import requests
 import time
 import json
 import concurrent.futures
-from mcp_monitoring_smithery.bulk_mcp_config import ( # Assuming you are using bulk_mcp_config.py
+from bulk_mcp_config import ( # Assuming you are using bulk_mcp_config.py
     bulk_logger as logger, MCP_API_BASE_URL, MCP_REQUEST_TIMEOUT, 
     API_DELAY_BULK, MCP_PAGE_SIZE_BULK, MCP_MAX_WORKERS_BULK
 )
