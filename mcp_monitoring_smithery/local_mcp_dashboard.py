@@ -56,12 +56,13 @@ except ImportError as e:
             # Return an empty DataFrame with all expected columns
             return pd.DataFrame(columns=[
                 'server_data', 'qualifiedName', 'displayName', 'description', 'useCount', 
-                'createdAt', 'toolCount', 'matched_finance_sectors', 
-                'matched_finance_sectors_scores', 'matched_threat_models', 
-                'matched_threat_models_scores', 'has_finance_execution', 
-                'has_finance_information_gathering', 'has_finance_agent_interaction',
-                'finance_execution_tools', 'finance_information_gathering_tools', 
-                'finance_agent_interaction_tools', 'error'
+                'createdAt', 'toolCount', 
+                'matched_finance_sectors', 'matched_finance_sectors_scores', 'matched_finance_sectors_matched_keywords',
+                'matched_threat_models', 'matched_threat_models_scores', 'matched_threat_models_matched_keywords',
+                'has_finance_execution', 'has_finance_information_gathering', 'has_finance_agent_interaction',
+                'finance_execution_tools', 'finance_information_gathering_tools', 'finance_agent_interaction_tools',
+                'finance_execution_matched_keywords', 'finance_information_gathering_matched_keywords', 'finance_agent_interaction_matched_keywords',
+                'error'
             ])
 
         if 'server_data' not in df_input.columns and not df_input.empty:
@@ -71,12 +72,13 @@ except ImportError as e:
             logger.warning("Fallback analysis: Input DataFrame is empty. Returning empty DataFrame with expected schema.")
             return pd.DataFrame(columns=[
                 'server_data', 'qualifiedName', 'displayName', 'description', 'useCount', 
-                'createdAt', 'toolCount', 'matched_finance_sectors', 
-                'matched_finance_sectors_scores', 'matched_threat_models', 
-                'matched_threat_models_scores', 'has_finance_execution', 
-                'has_finance_information_gathering', 'has_finance_agent_interaction',
-                'finance_execution_tools', 'finance_information_gathering_tools', 
-                'finance_agent_interaction_tools', 'error'
+                'createdAt', 'toolCount', 
+                'matched_finance_sectors', 'matched_finance_sectors_scores', 'matched_finance_sectors_matched_keywords',
+                'matched_threat_models', 'matched_threat_models_scores', 'matched_threat_models_matched_keywords',
+                'has_finance_execution', 'has_finance_information_gathering', 'has_finance_agent_interaction',
+                'finance_execution_tools', 'finance_information_gathering_tools', 'finance_agent_interaction_tools',
+                'finance_execution_matched_keywords', 'finance_information_gathering_matched_keywords', 'finance_agent_interaction_matched_keywords',
+                'error'
             ])
 
         df_output = df_input.copy()
@@ -95,14 +97,19 @@ except ImportError as e:
         
         df_output['matched_finance_sectors'] = default_list_col
         df_output['matched_finance_sectors_scores'] = default_dict_col
+        df_output['matched_finance_sectors_matched_keywords'] = default_dict_col # CHANGED TO DICT FOR FALLBACK
         df_output['matched_threat_models'] = default_list_col
         df_output['matched_threat_models_scores'] = default_dict_col
+        df_output['matched_threat_models_matched_keywords'] = default_dict_col # CHANGED TO DICT FOR FALLBACK
         df_output['has_finance_execution'] = False
         df_output['has_finance_information_gathering'] = False
         df_output['has_finance_agent_interaction'] = False
         df_output['finance_execution_tools'] = default_list_col
         df_output['finance_information_gathering_tools'] = default_list_col
         df_output['finance_agent_interaction_tools'] = default_list_col
+        df_output['finance_execution_matched_keywords'] = default_list_col
+        df_output['finance_information_gathering_matched_keywords'] = default_list_col
+        df_output['finance_agent_interaction_matched_keywords'] = default_list_col
         return df_output
     
     run_full_mcp_analysis = fallback_run_full_mcp_analysis # Assign fallback function
@@ -147,7 +154,6 @@ def load_and_analyze_data(json_file_path):
         df_raw = pd.DataFrame({'server_data': raw_data_list})
         logger.info(f"Successfully loaded {len(df_raw)} servers from {json_file_path}.")
         
-        # Log which version of run_full_mcp_analysis is being used
         if run_full_mcp_analysis.__name__ == 'fallback_run_full_mcp_analysis':
             logger.warning("load_and_analyze_data: Using the FALLBACK analysis function.")
         else:
@@ -155,19 +161,33 @@ def load_and_analyze_data(json_file_path):
             
         df_analyzed = run_full_mcp_analysis(df_raw) 
         
-        expected_cols = ['qualifiedName', 'matched_finance_sectors', 'matched_threat_models', 'has_finance_execution']
+        expected_cols = ['qualifiedName', 'matched_finance_sectors', 'matched_threat_models', 
+                         'matched_finance_sectors_matched_keywords', 'matched_threat_models_matched_keywords', # ADDED
+                         'has_finance_execution', 'finance_execution_matched_keywords'] # ADDED
         if not df_analyzed.empty and not all(col in df_analyzed.columns for col in expected_cols):
              logger.error(f"Analysis (or fallback) did not produce all expected columns. Available: {df_analyzed.columns.tolist()}")
              st.warning("Analysis pipeline might have encountered issues or is using fallbacks. Some dashboard features may not work correctly or show limited data.")
         elif df_analyzed.empty and raw_data_list: 
             st.error("Data was loaded, but the analysis pipeline returned an empty result. Check logs for errors in `local_mcp_analysis.py` or data processing.")
         
-        list_cols_to_check = ['matched_finance_sectors', 'matched_threat_models', 'finance_execution_tools', 'finance_information_gathering_tools', 'finance_agent_interaction_tools']
-        dict_cols_to_check = ['matched_finance_sectors_scores', 'matched_threat_models_scores']
+        list_cols_to_check = [
+            'matched_finance_sectors', 'matched_threat_models', 
+            'finance_execution_tools', 'finance_information_gathering_tools', 'finance_agent_interaction_tools',
+            'finance_execution_matched_keywords', 'finance_information_gathering_matched_keywords', 'finance_agent_interaction_matched_keywords' # ADDED
+        ]
+        dict_cols_to_check = [
+            'matched_finance_sectors_scores', 'matched_threat_models_scores',
+            'matched_finance_sectors_matched_keywords', 'matched_threat_models_matched_keywords' # ADDED (these are dicts mapping category to list of keywords)
+        ]
+
 
         for col in list_cols_to_check:
             if col in df_analyzed.columns:
-                df_analyzed[col] = df_analyzed[col].apply(lambda x: x if isinstance(x, list) else [])
+                 # Ensure _matched_keywords for affordances are lists (as they come from analysis)
+                if col.endswith("_matched_keywords") and ("finance_execution" in col or "finance_information_gathering" in col or "finance_agent_interaction" in col):
+                    df_analyzed[col] = df_analyzed[col].apply(lambda x: x if isinstance(x, list) else [])
+                elif not col.endswith("_matched_keywords"): # Original list columns
+                    df_analyzed[col] = df_analyzed[col].apply(lambda x: x if isinstance(x, list) else [])
             else: 
                 df_analyzed[col] = [[] for _ in range(len(df_analyzed))]
         
@@ -220,32 +240,41 @@ def display_server_details(selected_server_row):
     st.markdown("**Matched Finance Sectors:**")
     sectors = server.get('matched_finance_sectors', [])
     scores_sectors = server.get('matched_finance_sectors_scores', {})
+    keywords_sectors = server.get('matched_finance_sectors_matched_keywords', {}) # ADDED
     if sectors and isinstance(sectors, list): 
         for sector in sectors:
-            st.markdown(f"- {sector} (Score: {scores_sectors.get(sector, 0) if isinstance(scores_sectors, dict) else 0})")
+            score = scores_sectors.get(sector, 0) if isinstance(scores_sectors, dict) else 0
+            kws = ", ".join(keywords_sectors.get(sector, [])) if isinstance(keywords_sectors, dict) and isinstance(keywords_sectors.get(sector), list) else "N/A" # ADDED
+            st.markdown(f"- {sector} (Score: {score}, Matched Keywords: {kws})") # MODIFIED
     else:
         st.markdown("_No specific finance sectors matched or data is in unexpected format._")
 
     st.markdown("**Matched Threat Models:**")
     threats = server.get('matched_threat_models', [])
     scores_threats = server.get('matched_threat_models_scores', {})
+    keywords_threats = server.get('matched_threat_models_matched_keywords', {}) # ADDED
     if threats and isinstance(threats, list): 
         for threat in threats:
-            st.markdown(f"- {threat} (Score: {scores_threats.get(threat, 0) if isinstance(scores_threats, dict) else 0})")
+            score = scores_threats.get(threat, 0) if isinstance(scores_threats, dict) else 0
+            kws = ", ".join(keywords_threats.get(threat, [])) if isinstance(keywords_threats, dict) and isinstance(keywords_threats.get(threat), list) else "N/A" # ADDED
+            st.markdown(f"- {threat} (Score: {score}, Matched Keywords: {kws})") # MODIFIED
     else:
         st.markdown("_No specific threat models matched or data is in unexpected format._")
 
     st.markdown("**Financial Affordances:**")
     affordances_found = []
-    if server.get('has_finance_execution', False): # Default to False if key missing
+    if server.get('has_finance_execution', False): 
         tools = server.get('finance_execution_tools', []) 
-        affordances_found.append(f"**Execution** (Tools: {', '.join(tools) if isinstance(tools, list) and tools else 'N/A'})")
+        kws_exec = ", ".join(server.get('finance_execution_matched_keywords', [])) if isinstance(server.get('finance_execution_matched_keywords'), list) else "N/A" # ADDED
+        affordances_found.append(f"**Execution** (Tools: {', '.join(tools) if isinstance(tools, list) and tools else 'N/A'}, Matched Keywords: {kws_exec})") # MODIFIED
     if server.get('has_finance_information_gathering', False):
         tools = server.get('finance_information_gathering_tools', [])
-        affordances_found.append(f"**Information Gathering** (Tools: {', '.join(tools) if isinstance(tools, list) and tools else 'N/A'})")
+        kws_info = ", ".join(server.get('finance_information_gathering_matched_keywords', [])) if isinstance(server.get('finance_information_gathering_matched_keywords'), list) else "N/A" # ADDED
+        affordances_found.append(f"**Information Gathering** (Tools: {', '.join(tools) if isinstance(tools, list) and tools else 'N/A'}, Matched Keywords: {kws_info})") # MODIFIED
     if server.get('has_finance_agent_interaction', False):
         tools = server.get('finance_agent_interaction_tools', [])
-        affordances_found.append(f"**Agent Interaction** (Tools: {', '.join(tools) if isinstance(tools, list) and tools else 'N/A'})")
+        kws_agent = ", ".join(server.get('finance_agent_interaction_matched_keywords', [])) if isinstance(server.get('finance_agent_interaction_matched_keywords'), list) else "N/A" # ADDED
+        affordances_found.append(f"**Agent Interaction** (Tools: {', '.join(tools) if isinstance(tools, list) and tools else 'N/A'}, Matched Keywords: {kws_agent})") # MODIFIED
     
     if affordances_found:
         for aff in affordances_found:
@@ -289,6 +318,7 @@ tab1, tab2, tab3 = st.tabs(["📊 Overview & Stats", "🔍 Explore All MCP Serve
 
 with tab1: 
     st.header("MCP Ecosystem Overview")
+    # ... (no changes in this part of tab1, unless you want to show keyword stats here too) ...
     total_servers = len(df_analyzed)
     st.metric("Total MCP Servers Analyzed", total_servers if total_servers > 0 else "0 (or data loading issue)")
 
@@ -356,8 +386,10 @@ with tab1:
     else:
         st.info("Creation date data ('createdAt' column) is not available for a time series plot.")
 
+
 with tab2: 
     st.header("Explore and Filter MCP Servers")
+    # ... (sidebar filters remain largely the same) ...
     st.sidebar.title("🔍 Server Filters")
 
     df_filtered = df_analyzed.copy() 
@@ -408,28 +440,46 @@ with tab2:
     if not any(col_name in df_filtered.columns for col_name in ['has_finance_execution', 'has_finance_information_gathering', 'has_finance_agent_interaction']):
         st.sidebar.text("Financial affordance data not available for filtering (or analysis module not loaded).")
 
+
     st.info(f"Showing {len(df_filtered)} of {len(df_analyzed)} servers based on current filters.")
 
     if not df_filtered.empty:
-        cols_display = ['displayName', 'qualifiedName', 'useCount', 'toolCount', 'createdAt', 'matched_finance_sectors', 'matched_threat_models']
+        cols_display = [
+            'displayName', 'qualifiedName', 'useCount', 'toolCount', 'createdAt', 
+            'matched_finance_sectors', 'matched_finance_sectors_matched_keywords', # ADDED
+            'matched_threat_models', 'matched_threat_models_matched_keywords'      # ADDED
+        ]
+        # Filter for columns that actually exist to prevent errors
         cols_exist = [col for col in cols_display if col in df_filtered.columns]
         
-        st.dataframe(df_filtered[cols_exist].head(MAX_SERVERS_TO_DISPLAY_IN_TABLE), use_container_width=True, height=600)
+        # Convert dicts in keyword columns to string for display in main table
+        df_display_tab2 = df_filtered[cols_exist].copy()
+        if 'matched_finance_sectors_matched_keywords' in df_display_tab2:
+            df_display_tab2['matched_finance_sectors_matched_keywords'] = df_display_tab2['matched_finance_sectors_matched_keywords'].apply(
+                lambda d: "; ".join([f"{k}: {', '.join(v)}" for k, v in d.items()]) if isinstance(d, dict) else ""
+            )
+        if 'matched_threat_models_matched_keywords' in df_display_tab2:
+            df_display_tab2['matched_threat_models_matched_keywords'] = df_display_tab2['matched_threat_models_matched_keywords'].apply(
+                lambda d: "; ".join([f"{k}: {', '.join(v)}" for k, v in d.items()]) if isinstance(d, dict) else ""
+            )
+
+        st.dataframe(df_display_tab2.head(MAX_SERVERS_TO_DISPLAY_IN_TABLE), use_container_width=True, height=600)
+
         if len(df_filtered) > MAX_SERVERS_TO_DISPLAY_IN_TABLE:
             st.caption(f"Displaying top {MAX_SERVERS_TO_DISPLAY_IN_TABLE} results. Refine filters for more specific results.")
 
         st.subheader("View Server Details")
         if 'qualifiedName' in df_filtered.columns:
-            options = [""] + sorted(df_filtered['qualifiedName'].astype(str).unique().tolist())
+            # Ensure options are strings and handle potential NaN or None values gracefully
+            valid_qnames = df_filtered['qualifiedName'].dropna().astype(str).unique().tolist()
+            options = [""] + sorted(valid_qnames)
             sel_qname = st.selectbox("Select Server (by Qualified Name):", options, index=0, key="server_sel_tab2_unique")
-            if sel_qname: # Check if a server is actually selected
+            if sel_qname: 
                 server_detail_df = df_filtered[df_filtered['qualifiedName'] == sel_qname]
                 if not server_detail_df.empty:
                     display_server_details(server_detail_df)
-                # else: # This case should be rare if options are from df_filtered
-                    # st.warning(f"Selected server '{sel_qname}' not found in filtered data. This is unexpected.")
             else:
-                st.info("Select a server from the dropdown to view details.") # If "" is selected
+                st.info("Select a server from the dropdown to view details.") 
         else:
             st.warning("QualifiedName column missing, cannot select server for details.")
     else:
@@ -442,6 +492,7 @@ with tab3:
     if not all(col in df_analyzed.columns for col in aff_cols):
         st.error("One or more financial affordance columns are missing from the analyzed data. This tab cannot be fully displayed. This may be due to the analysis module ('mcp_monitoring_smithery') not being loaded correctly.")
     else:
+        # ... (bar chart for affordance counts remains the same) ...
         aff_counts_data = []
         display_names = ['Execution', 'Information Gathering', 'Agent Interaction']
         for col, d_name in zip(aff_cols, display_names):
@@ -450,15 +501,14 @@ with tab3:
         
         if aff_counts_data:
             aff_counts_df = pd.DataFrame(aff_counts_data)
-            # Only plot if there's actual data to prevent errors with empty df for bar chart
             if not aff_counts_df.empty and aff_counts_df['Number of Servers'].sum() > 0 :
                 fig_aff = px.bar(aff_counts_df, x='Affordance Type', y='Number of Servers', title="Servers by Identified Financial Affordance")
                 st.plotly_chart(fig_aff, use_container_width=True)
             else:
                 st.info("No servers identified with any financial affordances (or analysis module not loaded).")
-
         else:
             st.info("No financial affordance data available to plot (possibly due to missing columns or all counts being zero).")
+
 
         st.subheader("Servers with Specific Affordances")
         for aff_col, aff_display_name in zip(aff_cols, display_names):
@@ -471,9 +521,13 @@ with tab3:
                 df_subset = df_analyzed[df_analyzed[aff_col] == True]
                 if not df_subset.empty:
                     tool_col_key = f"finance_{aff_display_name.lower().replace(' ', '_')}_tools"
+                    keyword_col_key = f"finance_{aff_display_name.lower().replace(' ', '_')}_matched_keywords" # ADDED
+                    
                     cols_to_show = ['displayName', 'qualifiedName', 'useCount']
                     if tool_col_key in df_subset.columns:
                         cols_to_show.append(tool_col_key)
+                    if keyword_col_key in df_subset.columns: # ADDED
+                        cols_to_show.append(keyword_col_key) # ADDED
                     
                     existing_cols_to_show = [c for c in cols_to_show if c in df_subset.columns]
                     st.dataframe(df_subset[existing_cols_to_show].head(MAX_SERVERS_TO_DISPLAY_IN_TABLE), use_container_width=True)

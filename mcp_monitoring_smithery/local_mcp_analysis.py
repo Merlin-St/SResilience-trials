@@ -166,7 +166,8 @@ def match_server_to_keywords_stemmed(df_input, keyword_configs_map_input):
                                     (e.g., 'matched_finance_sectors') and values are
                                     keyword configuration dicts (e.g., FS_CONFIG).
     Returns:
-        pd.DataFrame: The input DataFrame with added columns for matched categories and their scores.
+        pd.DataFrame: The input DataFrame with added columns for matched categories, their scores,
+                      and the specific keywords that matched.
     """
     logger.info("Starting keyword matching for servers (stemmed)...")
     if 'server_data' not in df_input.columns:
@@ -175,6 +176,7 @@ def match_server_to_keywords_stemmed(df_input, keyword_configs_map_input):
             for new_col_name_outer in keyword_configs_map_input.keys():
                 df_input[new_col_name_outer] = [[] for _ in range(len(df_input))]
                 df_input[f"{new_col_name_outer}_scores"] = [{} for _ in range(len(df_input))]
+                df_input[f"{new_col_name_outer}_matched_keywords"] = [{} for _ in range(len(df_input))] # ADDED
         return df_input
     
     if not isinstance(keyword_configs_map_input, dict) or not keyword_configs_map_input:
@@ -183,11 +185,11 @@ def match_server_to_keywords_stemmed(df_input, keyword_configs_map_input):
 
     stemmed_keyword_configs_map = {}
     for col_name, config in keyword_configs_map_input.items():
-        if not isinstance(config, dict) or not config: # Check if config is empty
+        if not isinstance(config, dict) or not config: 
             logger.warning(f"Configuration for '{col_name}' is not a dictionary or is empty. Skipping this category set.")
-            # Ensure columns are added so dashboard doesn't break, even if empty
             df_input[col_name] = [[] for _ in range(len(df_input))]
             df_input[f"{col_name}_scores"] = [{} for _ in range(len(df_input))]
+            df_input[f"{col_name}_matched_keywords"] = [{} for _ in range(len(df_input))] # ADDED
             continue
 
         stemmed_config = {}
@@ -196,23 +198,26 @@ def match_server_to_keywords_stemmed(df_input, keyword_configs_map_input):
                 stemmed_config[category] = [stem_text(kw) for kw in keywords if isinstance(kw, str) and kw.strip()]
             else:
                 logger.warning(f"Keywords for category '{category}' in '{col_name}' is not a list. Skipping.")
-        if stemmed_config: # Only add if there are actual stemmed keywords
+        if stemmed_config: 
             stemmed_keyword_configs_map[col_name] = stemmed_config
-        else: # If config was valid but produced no stemmed keywords (e.g. all keywords were empty strings)
+        else: 
             logger.warning(f"Configuration for '{col_name}' resulted in no valid stemmed keywords. Skipping this category set.")
             df_input[col_name] = [[] for _ in range(len(df_input))]
             df_input[f"{col_name}_scores"] = [{} for _ in range(len(df_input))]
+            df_input[f"{col_name}_matched_keywords"] = [{} for _ in range(len(df_input))] # ADDED
 
 
     for new_col_name, stemmed_keyword_config in stemmed_keyword_configs_map.items():
         logger.info(f"Processing keyword set for column: {new_col_name}")
         matched_categories_for_servers = []
         match_scores_for_servers = []
+        matched_keywords_details_for_servers = [] # ADDED
 
         for index, row in df_input.iterrows():
             server_data = row['server_data']
             current_server_matches = set()
             current_server_scores = {}
+            current_server_matched_keywords = {} # ADDED
 
             if not isinstance(server_data, dict):
                 logger.warning(f"Skipping row {index} due to invalid server_data (not a dict).")
@@ -223,20 +228,25 @@ def match_server_to_keywords_stemmed(df_input, keyword_configs_map_input):
                 if stemmed_text_to_search.strip():
                     for category, stemmed_keywords in stemmed_keyword_config.items():
                         matched_keyword_count_for_category = 0
+                        keywords_found_for_category = set() # ADDED
                         for stemmed_keyword in stemmed_keywords:
                             if not stemmed_keyword: continue
                             if re.search(r'\b' + re.escape(stemmed_keyword) + r'\b', stemmed_text_to_search, re.IGNORECASE):
                                 current_server_matches.add(category)
                                 matched_keyword_count_for_category +=1
+                                keywords_found_for_category.add(stemmed_keyword) # ADDED
                         
                         if matched_keyword_count_for_category > 0:
                             current_server_scores[category] = matched_keyword_count_for_category
+                            current_server_matched_keywords[category] = list(keywords_found_for_category) # ADDED
             
             matched_categories_for_servers.append(list(current_server_matches))
             match_scores_for_servers.append(current_server_scores)
+            matched_keywords_details_for_servers.append(current_server_matched_keywords) # ADDED
 
         df_input[new_col_name] = matched_categories_for_servers
         df_input[f"{new_col_name}_scores"] = match_scores_for_servers
+        df_input[f"{new_col_name}_matched_keywords"] = matched_keywords_details_for_servers # ADDED
         logger.info(f"Finished processing for {new_col_name}. Added columns.")
     
     logger.info("Keyword matching (stemmed) complete.")
@@ -250,16 +260,18 @@ def analyze_server_affordances(df_input, affordance_keyword_config_input):
         df_input (pd.DataFrame): DataFrame of servers. Must contain 'server_data' column.
         affordance_keyword_config_input (dict): Keywords for different affordance types.
     Returns:
-        pd.DataFrame: DataFrame with added boolean columns for each affordance type and lists of matched tools.
+        pd.DataFrame: DataFrame with added boolean columns for each affordance type, lists of matched tools,
+                      and lists of matched keywords for each affordance.
     """
     logger.info("Starting server financial affordance analysis (stemmed)...")
     default_aff_types_for_schema = ['execution', 'information_gathering', 'agent_interaction']
 
     if 'server_data' not in df_input.columns:
         logger.error("'server_data' column not found. Cannot perform affordance analysis.")
-        for aff_type_outer in default_aff_types_for_schema: # Use default types for schema consistency
+        for aff_type_outer in default_aff_types_for_schema: 
             df_input[f"has_finance_{aff_type_outer}"] = False
             df_input[f"finance_{aff_type_outer}_tools"] = [[] for _ in range(len(df_input))]
+            df_input[f"finance_{aff_type_outer}_matched_keywords"] = [[] for _ in range(len(df_input))] # ADDED
         return df_input
 
     if not isinstance(affordance_keyword_config_input, dict) or not affordance_keyword_config_input:
@@ -269,6 +281,8 @@ def analyze_server_affordances(df_input, affordance_keyword_config_input):
                  df_input[f"has_finance_{aff_type_default}"] = False
             if f"finance_{aff_type_default}_tools" not in df_input.columns:
                  df_input[f"finance_{aff_type_default}_tools"] = [[] for _ in range(len(df_input))]
+            if f"finance_{aff_type_default}_matched_keywords" not in df_input.columns: # ADDED
+                 df_input[f"finance_{aff_type_default}_matched_keywords"] = [[] for _ in range(len(df_input))] # ADDED
         return df_input
 
 
@@ -279,15 +293,14 @@ def analyze_server_affordances(df_input, affordance_keyword_config_input):
         else:
             logger.warning(f"Keywords for affordance type '{affordance_type}' is not a list. Skipping this type.")
 
-    # Initialize results lists for each affordance type that IS in the stemmed_affordance_config
-    # or if the config is empty, initialize for default types
     active_aff_types = list(stemmed_affordance_config.keys())
-    if not active_aff_types: # If affordance_keyword_config_input was empty or invalid
+    if not active_aff_types: 
         active_aff_types = default_aff_types_for_schema
 
 
     affordance_results = {f"has_finance_{aff_type}": [False] * len(df_input) for aff_type in active_aff_types}
     affordance_tool_matches = {f"finance_{aff_type}_tools": [[] for _ in range(len(df_input))] for aff_type in active_aff_types}
+    affordance_matched_keywords = {f"finance_{aff_type}_matched_keywords": [set() for _ in range(len(df_input))] for aff_type in active_aff_types} # ADDED (use set for unique keywords per server)
 
 
     for index, row in df_input.iterrows():
@@ -299,7 +312,7 @@ def analyze_server_affordances(df_input, affordance_keyword_config_input):
         if not isinstance(tools, list): tools = []
 
         server_matched_tools_for_affordance = {aff_type: set() for aff_type in active_aff_types}
-
+        # server_matched_keywords_for_affordance initialized per server inside affordance_matched_keywords
 
         for tool in tools:
             if not isinstance(tool, dict): continue
@@ -312,18 +325,18 @@ def analyze_server_affordances(df_input, affordance_keyword_config_input):
             if not stemmed_tool_text.strip():
                 continue
             
-            # Iterate only over valid, stemmed types from the *input configuration*
             for affordance_type, stemmed_keywords in stemmed_affordance_config.items(): 
                 for stemmed_keyword in stemmed_keywords:
                     if not stemmed_keyword: continue
                     if re.search(r'\b' + re.escape(stemmed_keyword) + r'\b', stemmed_tool_text, re.IGNORECASE):
-                        # Ensure we only try to update keys that were initialized
                         if f"has_finance_{affordance_type}" in affordance_results:
                             affordance_results[f"has_finance_{affordance_type}"][index] = True
-                        if affordance_type in server_matched_tools_for_affordance: # Check against original keys from config
+                        if affordance_type in server_matched_tools_for_affordance: 
                             server_matched_tools_for_affordance[affordance_type].add(tool_name if tool_name else "UnnamedTool")
+                        if f"finance_{affordance_type}_matched_keywords" in affordance_matched_keywords: # ADDED
+                            affordance_matched_keywords[f"finance_{affordance_type}_matched_keywords"][index].add(stemmed_keyword) # ADDED
         
-        for aff_type in active_aff_types: # Iterate using active_aff_types for consistent assignment
+        for aff_type in active_aff_types: 
              if f"finance_{aff_type}_tools" in affordance_tool_matches and aff_type in server_matched_tools_for_affordance:
                 affordance_tool_matches[f"finance_{aff_type}_tools"][index] = list(server_matched_tools_for_affordance[aff_type])
 
@@ -332,13 +345,16 @@ def analyze_server_affordances(df_input, affordance_keyword_config_input):
         df_input[col_name] = results_list
     for col_name, matched_tools_list_of_lists in affordance_tool_matches.items():
         df_input[col_name] = matched_tools_list_of_lists
+    for col_name, matched_keywords_set_list in affordance_matched_keywords.items(): # ADDED
+        df_input[col_name] = [list(s) for s in matched_keywords_set_list] # Convert sets to lists for DataFrame # ADDED
     
-    # Ensure all standard affordance columns from default_aff_types_for_schema exist, even if config was missing
     for aff_type_schema in default_aff_types_for_schema:
         if f"has_finance_{aff_type_schema}" not in df_input.columns:
             df_input[f"has_finance_{aff_type_schema}"] = False
         if f"finance_{aff_type_schema}_tools" not in df_input.columns:
             df_input[f"finance_{aff_type_schema}_tools"] = [[] for _ in range(len(df_input))]
+        if f"finance_{aff_type_schema}_matched_keywords" not in df_input.columns: # ADDED
+            df_input[f"finance_{aff_type_schema}_matched_keywords"] = [[] for _ in range(len(df_input))] # ADDED
 
 
     logger.info("Server financial affordance analysis (stemmed) complete.")
@@ -365,18 +381,23 @@ def run_full_mcp_analysis(df_servers_raw):
     if 'server_data' not in df_analyzed.columns:
         logger.error("Raw DataFrame must contain 'server_data' column. Analysis cannot proceed.")
         df_analyzed['error'] = "'server_data' column missing."
-        # Add other expected columns as empty to prevent downstream errors
         expected_cols_on_error = [
             'qualifiedName', 'displayName', 'description', 'useCount', 'createdAt', 'toolCount',
-            'matched_finance_sectors', 'matched_finance_sectors_scores',
-            'matched_threat_models', 'matched_threat_models_scores',
-            'has_finance_execution', 'finance_execution_tools',
-            'has_finance_information_gathering', 'finance_information_gathering_tools',
-            'has_finance_agent_interaction', 'finance_agent_interaction_tools'
+            'matched_finance_sectors', 'matched_finance_sectors_scores', 'matched_finance_sectors_matched_keywords', # ADDED
+            'matched_threat_models', 'matched_threat_models_scores', 'matched_threat_models_matched_keywords', # ADDED
+            'has_finance_execution', 'finance_execution_tools', 'finance_execution_matched_keywords', # ADDED
+            'has_finance_information_gathering', 'finance_information_gathering_tools', 'finance_information_gathering_matched_keywords', # ADDED
+            'has_finance_agent_interaction', 'finance_agent_interaction_tools', 'finance_agent_interaction_matched_keywords' # ADDED
         ]
-        for col in expected_cols_on_error:
-            if col.endswith('_scores') or col.endswith('_tools') or col.endswith('_sectors') or col.endswith('_models'):
-                df_analyzed[col] = [[] if col.endswith('_tools') or col.endswith('_sectors') or col.endswith('_models') else {} for _ in range(len(df_analyzed))]
+        for col in expected_cols_on_error: # Ensure these columns exist for schema consistency
+            if col.endswith('_scores') or col.endswith('_tools') or col.endswith('_sectors') or col.endswith('_models') or col.endswith('_matched_keywords'): # UPDATED
+                # Default to empty list for list-like columns (tools, sectors, models, keywords)
+                # and empty dict for dict-like columns (scores)
+                if col.endswith('_scores'):
+                     df_analyzed[col] = [{} for _ in range(len(df_analyzed))]
+                else:
+                     df_analyzed[col] = [[] for _ in range(len(df_analyzed))]
+
             elif col in ['useCount', 'toolCount']:
                 df_analyzed[col] = 0
             elif col.startswith('has_finance_'):
@@ -401,7 +422,6 @@ def run_full_mcp_analysis(df_servers_raw):
         'matched_threat_models': TM_CONFIG
     }
     
-    # Log if configs are empty before calling matching function
     if not FS_CONFIG:
         logger.warning("FS_CONFIG (Finance Sector Keywords) is empty. 'matched_finance_sectors' will likely be empty.")
     if not TM_CONFIG:
@@ -417,9 +437,9 @@ def run_full_mcp_analysis(df_servers_raw):
         if total_servers > 0:
             coverage_percent = (servers_with_tools / total_servers) * 100
             logger.info(f"Tool data present for {servers_with_tools}/{total_servers} servers ({coverage_percent:.2f}% coverage).")
-            if coverage_percent < 1.0 and servers_with_tools > 0 : # Adjusted threshold for warning to be more sensitive if some tools exist but very few
+            if coverage_percent < 1.0 and servers_with_tools > 0 : 
                  logger.warning(f"Very low percentage of servers with tool details found ({coverage_percent:.2f}%). Affordance analysis might be incomplete.")
-            elif servers_with_tools == 0: # Specifically log if absolutely no tools are found
+            elif servers_with_tools == 0: 
                 logger.warning("No servers found with tool details. Affordance analysis will not find any tool-based affordances.")
 
         elif total_servers == 0:
@@ -468,11 +488,11 @@ if __name__ == '__main__':
         
         cols_to_show = [
             'qualifiedName', 'displayName', 'toolCount',
-            'matched_finance_sectors', 'matched_finance_sectors_scores',
-            'matched_threat_models', 'matched_threat_models_scores',
-            'has_finance_execution', 'finance_execution_tools',
-            'has_finance_information_gathering', 'finance_information_gathering_tools',
-            'has_finance_agent_interaction', 'finance_agent_interaction_tools'
+            'matched_finance_sectors', 'matched_finance_sectors_scores', 'matched_finance_sectors_matched_keywords',
+            'matched_threat_models', 'matched_threat_models_scores', 'matched_threat_models_matched_keywords',
+            'has_finance_execution', 'finance_execution_tools', 'finance_execution_matched_keywords',
+            'has_finance_information_gathering', 'finance_information_gathering_tools', 'finance_information_gathering_matched_keywords',
+            'has_finance_agent_interaction', 'finance_agent_interaction_tools', 'finance_agent_interaction_matched_keywords'
         ]
         
         if not df_analyzed_test.empty:
